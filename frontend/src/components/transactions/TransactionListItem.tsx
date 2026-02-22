@@ -46,7 +46,7 @@ export const TransactionListItem: React.FC<TransactionListItemProps> = ({
 
   return (
     <div
-      className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-xl px-4 py-3.5 hover:bg-[#111] transition-all duration-200 cursor-pointer group border-l-2"
+      className="bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.05] rounded-xl px-4 py-3.5 hover:bg-white/[0.06] transition-all duration-200 cursor-pointer group border-l-2"
       style={{ borderLeftColor: categoryColor }}
       onClick={onClick}
     >

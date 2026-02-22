@@ -82,9 +82,9 @@ export const Notifications: React.FC = () => {
 
           {/* ═══ HERO ═══════════════════════════════════════ */}
           <motion.div variants={itemV}>
-            <div className="relative rounded-3xl overflow-hidden bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A]">
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#8B5CF6] to-transparent opacity-60" />
-              <div className="absolute -top-20 right-10 w-60 h-60 rounded-full opacity-[0.03]"
+            <div className="relative rounded-3xl overflow-hidden glass">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#8B5CF6] to-transparent opacity-80" />
+              <div className="absolute -top-20 right-10 w-60 h-60 rounded-full opacity-[0.06]"
                 style={{ background: 'radial-gradient(circle, #8B5CF6, transparent)' }} />
               <div className="relative z-10 p-4 sm:p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
                 <div>
@@ -126,8 +126,8 @@ export const Notifications: React.FC = () => {
             </div>
           ) : insights.length === 0 ? (
             <motion.div variants={itemV}
-              className="relative bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl py-16 text-center overflow-hidden">
-              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 rounded-full opacity-[0.03]"
+              className="relative glass rounded-2xl py-16 text-center overflow-hidden">
+              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 rounded-full opacity-[0.06]"
                 style={{ background: 'radial-gradient(circle, #8B5CF6, transparent)' }} />
               <div className="relative z-10">
                 <div className="w-16 h-16 rounded-2xl bg-[#8B5CF6]/10 flex items-center justify-center mx-auto mb-4">
@@ -145,7 +145,7 @@ export const Notifications: React.FC = () => {
                 const config = SEVERITY_CONFIG[insight.severity] || SEVERITY_CONFIG.info;
                 return (
                   <motion.div key={insight.id} variants={itemV}>
-                    <div className="relative bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl p-4 sm:p-5 overflow-hidden hover:border-white/[0.08] transition-all">
+                    <div className="relative glass rounded-2xl p-4 sm:p-5 overflow-hidden hover:border-white/[0.12] transition-all">
                       {/* Severity accent */}
                       <div className="absolute top-0 left-0 w-1 h-full rounded-l-2xl" style={{ backgroundColor: config.color }} />
 

@@ -168,13 +168,13 @@ export const Onboarding: React.FC = () => {
   const slide = slides[current];
 
   return (
-    <div className="min-h-screen bg-dark-bg flex flex-col items-center justify-center px-6 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-purple/8 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Card — matches Stitch design */}
-      <div className="w-full max-w-sm bg-dark-card border border-dark-border/60 rounded-3xl overflow-hidden shadow-xl animate-fade-in">
+      <div className="w-full max-w-sm bg-white/[0.04] border border-white/[0.07] rounded-3xl overflow-hidden shadow-xl animate-fade-in">
 
         {/* Illustration */}
         <div
@@ -205,7 +205,7 @@ export const Onboarding: React.FC = () => {
               style={{
                 width: i === current ? 24 : 8,
                 height: 8,
-                backgroundColor: i === current ? '#F5C518' : '#2A2A2A',
+                backgroundColor: i === current ? '#F5C518' : 'rgba(255,255,255,0.10)',
               }}
               aria-label={`Go to slide ${i + 1}`}
             />

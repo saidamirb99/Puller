@@ -23,7 +23,7 @@ export const Input: React.FC<InputProps> = ({
       <input
         className={`
           w-full px-4 py-2.5
-          bg-dark-card border border-dark-border rounded-xl
+          bg-white/[0.04] border border-white/[0.07] rounded-xl
           text-white placeholder-gray-500
           focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-transparent
           transition-all duration-200

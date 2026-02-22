@@ -18,8 +18,8 @@ const JarRing: React.FC<{ jar: JarBalance; totalAllocated: number; fmt: (n: numb
 
   return (
     <div
-      className="relative rounded-2xl overflow-hidden p-5 transition-all duration-300 border border-[#2A2A2A] hover:-translate-y-1 hover:border-[#F5C518]/20 hover:shadow-[0_0_30px_rgba(245,197,24,0.08)] cursor-pointer"
-      style={{ background: '#1A1A1A99' }}
+      className="relative rounded-2xl overflow-hidden p-5 transition-all duration-300 border border-white/[0.07] hover:-translate-y-1 hover:border-[#F5C518]/20 hover:shadow-[0_0_30px_rgba(245,197,24,0.08)] cursor-pointer"
+      style={{ background: 'rgba(255,255,255,0.04)' }}
     >
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-[2px]"
@@ -55,7 +55,7 @@ const JarRing: React.FC<{ jar: JarBalance; totalAllocated: number; fmt: (n: numb
               </linearGradient>
             </defs>
             {/* Track */}
-            <circle cx="50" cy="50" r={r} fill="none" stroke="#1A1A1A" strokeWidth="6" />
+            <circle cx="50" cy="50" r={r} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="6" />
             {/* Progress */}
             <circle cx="50" cy="50" r={r} fill="none"
               stroke={`url(#jarGrad-${jar.jar_type})`}
@@ -121,11 +121,11 @@ export const Jars: React.FC = () => {
 
           {/* ═══ HERO HEADER ═══════════════════════════════════ */}
           <motion.div variants={itemV}>
-            <div className="relative rounded-3xl overflow-hidden bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A]">
+            <div className="relative rounded-3xl overflow-hidden glass">
               {/* Gold accent line */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C518] to-transparent opacity-60" />
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C518] to-transparent opacity-80" />
               {/* Radial glow */}
-              <div className="absolute -top-20 right-10 w-60 h-60 rounded-full opacity-[0.03]"
+              <div className="absolute -top-20 right-10 w-60 h-60 rounded-full opacity-[0.06]"
                 style={{ background: 'radial-gradient(circle, #F5C518, transparent)' }} />
               <div className="relative z-10 p-4 sm:p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
                 <div>
@@ -134,7 +134,7 @@ export const Jars: React.FC = () => {
                 </div>
                 <button
                   onClick={() => setShowConfig(true)}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all border border-[#2A2A2A] bg-white/[0.04] text-gray-400 hover:text-white hover:border-[#F5C518]/30"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all border border-white/[0.07] bg-white/[0.04] text-gray-400 hover:text-white hover:border-[#F5C518]/30"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="3" />
@@ -149,14 +149,14 @@ export const Jars: React.FC = () => {
           {isLoading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[0,1,2,3,4,5].map(i => (
-                <div key={i} className="bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl p-5 animate-pulse">
+                <div key={i} className="glass rounded-2xl p-5 animate-pulse">
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-10 h-10 rounded-xl bg-white/[0.06]" />
                     <div className="w-12 h-5 rounded-full bg-white/[0.04]" />
                   </div>
                   <div className="h-3 w-20 bg-white/[0.04] rounded mb-4" />
                   <div className="flex items-center gap-4">
-                    <div className="w-20 h-20 rounded-full border-[6px] border-[#1A1A1A]" />
+                    <div className="w-20 h-20 rounded-full border-[6px] border-white/[0.05]" />
                     <div>
                       <div className="h-6 w-24 bg-white/[0.06] rounded mb-2" />
                       <div className="h-2 w-16 bg-white/[0.04] rounded" />
@@ -167,8 +167,8 @@ export const Jars: React.FC = () => {
             </div>
           ) : !summary ? (
             <motion.div variants={itemV}
-              className="relative bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl py-20 text-center overflow-hidden">
-              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 rounded-full opacity-[0.03]"
+              className="relative glass rounded-2xl py-20 text-center overflow-hidden">
+              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 rounded-full opacity-[0.06]"
                 style={{ background: 'radial-gradient(circle, #F5C518, transparent)' }} />
               <div className="relative z-10">
                 <div className="w-16 h-16 rounded-2xl bg-[#F5C518]/10 flex items-center justify-center mx-auto mb-4 text-3xl">
@@ -181,9 +181,9 @@ export const Jars: React.FC = () => {
             <>
               {/* ═══ TOTAL ALLOCATED HERO ══════════════════════════ */}
               <motion.div variants={itemV}>
-                <div className="relative rounded-2xl overflow-hidden bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] p-6">
+                <div className="relative rounded-2xl overflow-hidden glass p-6">
                   <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C518] to-transparent opacity-40" />
-                  <div className="absolute -top-20 right-10 w-48 h-48 rounded-full opacity-[0.03]"
+                  <div className="absolute -top-20 right-10 w-48 h-48 rounded-full opacity-[0.06]"
                     style={{ background: 'radial-gradient(circle, #F5C518, transparent)' }} />
                   <div className="relative z-10 flex items-center justify-between">
                     <div>
@@ -224,8 +224,8 @@ export const Jars: React.FC = () => {
               {/* Empty state hint */}
               {summary.total_allocated === 0 && (
                 <motion.div variants={itemV}
-                  className="relative bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl py-12 text-center overflow-hidden">
-                  <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 rounded-full opacity-[0.03]"
+                  className="relative glass rounded-2xl py-12 text-center overflow-hidden">
+                  <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 rounded-full opacity-[0.06]"
                     style={{ background: 'radial-gradient(circle, #F5C518, transparent)' }} />
                   <div className="relative z-10">
                     <div className="w-14 h-14 rounded-2xl bg-[#F5C518]/10 flex items-center justify-center mx-auto mb-3 text-2xl">🏺</div>

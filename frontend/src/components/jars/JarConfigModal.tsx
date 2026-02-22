@@ -55,10 +55,10 @@ export const JarConfigModal: React.FC<JarConfigModalProps> = ({ onClose, onSaved
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative bg-dark-card border border-dark-border rounded-2xl w-full max-w-md mx-4 p-6 shadow-2xl">
+      <div className="relative bg-white/[0.04] border border-white/[0.07] rounded-2xl w-full max-w-md mx-4 p-6 shadow-2xl">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-bold text-white">{t('jars.editPercentages')}</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-white text-xl">&times;</button>
@@ -77,7 +77,7 @@ export const JarConfigModal: React.FC<JarConfigModalProps> = ({ onClose, onSaved
                   step="1"
                   value={percentages[config.jar_type] ?? config.percentage}
                   onChange={(e) => handleChange(config.jar_type, e.target.value)}
-                  className="w-full bg-dark-bg border border-dark-border rounded-lg px-3 py-2 text-white text-sm text-right pr-7 focus:outline-none focus:border-brand-purple"
+                  className="w-full border border-white/[0.07] rounded-lg px-3 py-2 text-white text-sm text-right pr-7 focus:outline-none focus:border-brand-purple"
                 />
                 <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500 text-sm">%</span>
               </div>
@@ -86,7 +86,7 @@ export const JarConfigModal: React.FC<JarConfigModalProps> = ({ onClose, onSaved
         </div>
 
         {/* Total */}
-        <div className={`flex items-center justify-between mt-6 pt-4 border-t border-dark-border ${isValid ? 'text-green-400' : 'text-red-400'}`}>
+        <div className={`flex items-center justify-between mt-6 pt-4 border-t border-white/[0.07] ${isValid ? 'text-green-400' : 'text-red-400'}`}>
           <span className="text-sm font-medium">{t('jars.currentTotal')}</span>
           <span className="text-sm font-bold">{total.toFixed(1)}%</span>
         </div>

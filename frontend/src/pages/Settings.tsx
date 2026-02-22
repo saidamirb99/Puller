@@ -138,11 +138,11 @@ export const Settings: React.FC = () => {
       >
         {/* ── Hero Profile Card ──────────────────────────── */}
         <motion.div variants={itemV}>
-          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A]">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden glass">
             {/* Accent line */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C518] to-transparent opacity-60" />
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C518] to-transparent opacity-80" />
             {/* Glow */}
-            <div className="absolute -top-20 -right-10 w-48 h-48 rounded-full opacity-[0.04]"
+            <div className="absolute -top-20 -right-10 w-48 h-48 rounded-full opacity-[0.07]"
               style={{ background: 'radial-gradient(circle, #F5C518, transparent)' }} />
 
             <div className="relative p-4 sm:p-6 lg:p-8 flex items-center gap-3.5 sm:gap-5">
@@ -172,7 +172,7 @@ export const Settings: React.FC = () => {
               {/* Edit button */}
               <button
                 onClick={openEditProfile}
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white/[0.06] border border-[#2A2A2A] flex items-center justify-center text-gray-400 hover:text-white hover:border-[#F5C518]/30 transition-all"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white/[0.06] border border-white/[0.07] flex items-center justify-center text-gray-400 hover:text-white hover:border-[#F5C518]/30 transition-all"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-4 sm:h-4">
                   <path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
@@ -187,8 +187,8 @@ export const Settings: React.FC = () => {
           <p className="text-gray-500 text-[10px] uppercase tracking-wider font-semibold mb-2.5 ml-1">
             {t('settings.general')}
           </p>
-          <div className="relative rounded-2xl overflow-hidden bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A]">
-            <div className="divide-y divide-[#2A2A2A]/60">
+          <div className="relative rounded-2xl overflow-hidden glass">
+            <div className="divide-y divide-white/[0.06]">
               {/* Currency */}
               <SettingsRow
                 icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5C518" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M15 9.35a4 4 0 00-3-1.35c-2.21 0-4 1.34-4 3s1.79 3 4 3a4 4 0 003-1.35" /><path d="M12 5v2M12 17v2" /></svg>}
@@ -217,7 +217,7 @@ export const Settings: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={(e) => { e.stopPropagation(); toggleNotifications(); }}
-                      className={`relative w-10 h-[22px] sm:w-11 sm:h-6 rounded-full transition-colors duration-200 ${notifications ? 'bg-[#F5C518]' : 'bg-[#2A2A2A]'}`}
+                      className={`relative w-10 h-[22px] sm:w-11 sm:h-6 rounded-full transition-colors duration-200 ${notifications ? 'bg-[#F5C518]' : 'bg-white/[0.10]'}`}
                     >
                       <div className={`absolute top-0.5 left-0.5 w-[18px] h-[18px] sm:w-5 sm:h-5 rounded-full bg-white shadow-md transition-transform duration-200 ${notifications ? 'translate-x-[18px] sm:translate-x-5' : ''}`} />
                     </button>
@@ -234,8 +234,8 @@ export const Settings: React.FC = () => {
           <p className="text-gray-500 text-[10px] uppercase tracking-wider font-semibold mb-2.5 ml-1">
             {t('settings.data')}
           </p>
-          <div className="relative rounded-2xl overflow-hidden bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A]">
-            <div className="divide-y divide-[#2A2A2A]/60">
+          <div className="relative rounded-2xl overflow-hidden glass">
+            <div className="divide-y divide-white/[0.06]">
               <SettingsRow
                 icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FB923C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></svg>}
                 iconColor="#FB923C"
@@ -266,7 +266,7 @@ export const Settings: React.FC = () => {
           <p className="text-gray-500 text-[10px] uppercase tracking-wider font-semibold mb-2.5 ml-1">
             {t('settings.family')}
           </p>
-          <div className="relative rounded-2xl overflow-hidden bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A]">
+          <div className="relative rounded-2xl overflow-hidden glass">
             <SettingsRow
               icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F472B6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg>}
               iconColor="#F472B6"
@@ -287,8 +287,8 @@ export const Settings: React.FC = () => {
           <p className="text-gray-500 text-[10px] uppercase tracking-wider font-semibold mb-2.5 ml-1">
             {t('settings.about')}
           </p>
-          <div className="relative rounded-2xl overflow-hidden bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A]">
-            <div className="divide-y divide-[#2A2A2A]/60">
+          <div className="relative rounded-2xl overflow-hidden glass">
+            <div className="divide-y divide-white/[0.06]">
               <SettingsRow
                 icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>}
                 iconColor="#9CA3AF"
@@ -333,7 +333,7 @@ export const Settings: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/60"
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
               onClick={() => { setShowCurrencyModal(false); setCurrencySearch(''); }}
             />
             <motion.div
@@ -341,7 +341,7 @@ export const Settings: React.FC = () => {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 100, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-sm bg-[#0D0D0D] rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden border border-[#1A1A1A] sm:border-[#2A2A2A]"
+              className="relative w-full max-w-sm bg-[#0c0c18]/80 backdrop-blur-2xl rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden border border-white/[0.05] sm:border-white/[0.07]"
             >
               {/* Drag handle (mobile) */}
               <div className="flex justify-center pt-3 sm:hidden">
@@ -355,7 +355,7 @@ export const Settings: React.FC = () => {
                   value={currencySearch}
                   onChange={e => setCurrencySearch(e.target.value)}
                   placeholder={t('accountForm.searchCurrency')}
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] text-white text-sm placeholder-gray-500 outline-none focus:border-[#F5C518]/40 transition-colors mb-3"
+                  className="w-full px-4 py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.07] text-white text-sm placeholder-gray-500 outline-none focus:border-[#F5C518]/40 transition-colors mb-3"
                   autoFocus
                 />
                 <div className="max-h-64 overflow-y-auto space-y-0.5">
@@ -366,7 +366,7 @@ export const Settings: React.FC = () => {
                       className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-colors ${
                         c.code === user?.default_currency
                           ? 'bg-[#F5C518]/10 border border-[#F5C518]/20'
-                          : 'hover:bg-white/[0.04]'
+                          : 'hover:bg-white/[0.08]'
                       }`}
                     >
                       <span className="text-lg">{c.flag}</span>
@@ -391,7 +391,7 @@ export const Settings: React.FC = () => {
               <div className="px-5 pb-5">
                 <button
                   onClick={() => { setShowCurrencyModal(false); setCurrencySearch(''); }}
-                  className="w-full py-2.5 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] text-gray-400 text-sm font-medium hover:bg-white/[0.04] transition-colors"
+                  className="w-full py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.07] text-gray-400 text-sm font-medium hover:bg-white/[0.08] transition-colors"
                 >
                   {t('modal.cancel')}
                 </button>
@@ -411,7 +411,7 @@ export const Settings: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/60"
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
               onClick={() => setShowEditProfile(false)}
             />
             <motion.div
@@ -419,7 +419,7 @@ export const Settings: React.FC = () => {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 100, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-sm bg-[#0D0D0D] rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden border border-[#1A1A1A] sm:border-[#2A2A2A]"
+              className="relative w-full max-w-sm bg-[#0c0c18]/80 backdrop-blur-2xl rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden border border-white/[0.05] sm:border-white/[0.07]"
             >
               {/* Drag handle (mobile) */}
               <div className="flex justify-center pt-3 sm:hidden">
@@ -436,7 +436,7 @@ export const Settings: React.FC = () => {
                     value={editName}
                     onChange={e => setEditName(e.target.value)}
                     placeholder={t('auth.namePlaceholder')}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] text-white text-sm placeholder-gray-500 outline-none focus:border-[#F5C518]/40 transition-colors"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.07] text-white text-sm placeholder-gray-500 outline-none focus:border-[#F5C518]/40 transition-colors"
                     autoFocus
                   />
                 </div>
@@ -447,7 +447,7 @@ export const Settings: React.FC = () => {
                     type="email"
                     value={editEmail}
                     disabled
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] text-gray-500 text-sm cursor-not-allowed"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.07] text-gray-500 text-sm cursor-not-allowed"
                   />
                   <p className="text-gray-600 text-[10px] mt-1 ml-1">
                     {i18n.language === 'ru' ? 'Email нельзя изменить' : 'Email cannot be changed'}
@@ -458,7 +458,7 @@ export const Settings: React.FC = () => {
               <div className="flex gap-3 px-5 pb-5">
                 <button
                   onClick={() => setShowEditProfile(false)}
-                  className="flex-1 py-2.5 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] text-gray-400 text-sm font-medium hover:bg-white/[0.04] transition-colors"
+                  className="flex-1 py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.07] text-gray-400 text-sm font-medium hover:bg-white/[0.08] transition-colors"
                 >
                   {t('modal.cancel')}
                 </button>
@@ -501,7 +501,7 @@ const SettingsRow: React.FC<SettingsRowProps> = ({
   onClick,
   rightContent,
   chevron = false,
-  hoverBg = 'hover:bg-white/[0.02]',
+  hoverBg = 'hover:bg-white/[0.06]',
 }) => {
   const Wrapper = onClick ? 'button' : 'div';
   return (

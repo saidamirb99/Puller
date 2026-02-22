@@ -43,7 +43,7 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-dark-bg px-4 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-96 h-96 bg-brand-purple/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-600/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
 
@@ -58,7 +58,7 @@ export const Login: React.FC = () => {
           <p className="text-gray-400">{t('auth.loginSubtitle')}</p>
         </div>
 
-        <div className="bg-dark-card border border-dark-border rounded-2xl shadow-2xl p-5 sm:p-8">
+        <div className="bg-white/[0.04] border border-white/[0.07] rounded-2xl shadow-2xl p-5 sm:p-8">
           <h2 className="text-2xl font-bold text-white mb-6">{t('auth.loginTitle')}</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <Input label={t('auth.email')} type="email" name="email" placeholder={t('auth.emailPlaceholder')}

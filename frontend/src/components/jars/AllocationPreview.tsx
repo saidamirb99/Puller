@@ -24,7 +24,7 @@ export const AllocationPreview: React.FC<AllocationPreviewProps> = ({ amount }) 
   if (amount <= 0 || items.length === 0) return null;
 
   return (
-    <div className="border-t border-dark-border pt-3">
+    <div className="border-t border-white/[0.07] pt-3">
       <p className="text-xs text-gray-500 uppercase tracking-wider mb-2 font-medium">
         {t('jars.allocationPreview')}
       </p>

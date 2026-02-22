@@ -49,19 +49,19 @@ const SettleModal: React.FC<SettleModalProps> = ({ accounts, defaultAccountId, o
   }, [onCancel]);
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[70] p-4">
-      <div ref={ref} className="bg-dark-card border border-dark-border rounded-2xl shadow-2xl w-full max-w-sm p-6">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[70] p-4">
+      <div ref={ref} className="bg-white/[0.04] border border-white/[0.07] rounded-2xl shadow-2xl w-full max-w-sm p-6">
         <h3 className="text-white font-bold text-lg mb-1">{t('debts.markPaid')}</h3>
         <p className="text-gray-400 text-sm mb-5">{t('debts.settlementAccount')}</p>
         <div className="space-y-2 max-h-48 overflow-y-auto mb-5">
           <button onClick={() => setSelected('')}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border transition-all ${selected === '' ? 'border-brand-purple bg-brand-purple/10' : 'border-dark-border hover:border-gray-500'}`}>
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border transition-all ${selected === '' ? 'border-brand-purple bg-brand-purple/10' : 'border-white/[0.07] hover:border-gray-500'}`}>
             <span className="text-xl">💸</span>
             <span className="text-white text-sm">{t('debts.skipAccount')}</span>
           </button>
           {accounts.map(acc => (
             <button key={acc.id} onClick={() => setSelected(acc.id)}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border transition-all ${selected === acc.id ? 'border-brand-purple bg-brand-purple/10' : 'border-dark-border hover:border-gray-500'}`}>
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border transition-all ${selected === acc.id ? 'border-brand-purple bg-brand-purple/10' : 'border-white/[0.07] hover:border-gray-500'}`}>
               <span className="text-xl">{acc.icon}</span>
               <div className="text-left flex-1 min-w-0">
                 <p className="text-white text-sm font-medium truncate">{acc.name}</p>
@@ -71,7 +71,7 @@ const SettleModal: React.FC<SettleModalProps> = ({ accounts, defaultAccountId, o
           ))}
         </div>
         <div className="flex gap-3">
-          <button onClick={onCancel} className="flex-1 py-2.5 rounded-xl border border-dark-border text-gray-400 hover:text-white transition-all text-sm font-medium">{t('debts.cancel')}</button>
+          <button onClick={onCancel} className="flex-1 py-2.5 rounded-xl border border-white/[0.07] text-gray-400 hover:text-white transition-all text-sm font-medium">{t('debts.cancel')}</button>
           <button onClick={() => onConfirm(selected || null)} className="flex-1 py-2.5 rounded-xl bg-brand-purple hover:bg-brand-purple-light text-white font-semibold transition-all text-sm">
             ✓ {t('debts.markPaid')}
           </button>
@@ -111,11 +111,11 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ remaining, accounts, defaul
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center z-[70] p-0 sm:p-4">
-      <div ref={ref} className="bg-dark-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden">
-        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-dark-border">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-end sm:items-center justify-center z-[70] p-0 sm:p-4">
+      <div ref={ref} className="bg-white/[0.04] w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden">
+        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/[0.07]">
           <h2 className="text-white font-bold text-lg">{t('debtDetail.addPayment')}</h2>
-          <button onClick={onCancel} className="w-8 h-8 flex items-center justify-center rounded-full bg-dark-bg text-gray-400 hover:text-white">✕</button>
+          <button onClick={onCancel} className="w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:text-white">✕</button>
         </div>
         <div className="px-6 py-5 space-y-4">
           {/* Amount */}
@@ -135,7 +135,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ remaining, accounts, defaul
           <div>
             <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">{t('debts.linkedAccount')}</label>
             <select value={accountId} onChange={e => setAccountId(e.target.value)}
-              className="w-full px-4 py-3 bg-dark-bg border border-dark-border rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple">
+              className="w-full px-4 py-3 border border-white/[0.07] rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple">
               <option value="">{t('debts.noAccount')}</option>
               {accounts.map(a => <option key={a.id} value={a.id}>{a.icon} {a.name} ({fmt(a.balance)})</option>)}
             </select>
@@ -145,7 +145,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ remaining, accounts, defaul
           <div>
             <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">{t('debtDetail.paymentNote')}</label>
             <input type="text" value={note} onChange={e => setNote(e.target.value)} placeholder={t('debtDetail.paymentNotePlaceholder')}
-              className="w-full px-4 py-3 bg-dark-bg border border-dark-border rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple" />
+              className="w-full px-4 py-3 border border-white/[0.07] rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple" />
           </div>
 
           <button onClick={handleSubmit} className="w-full py-4 rounded-2xl bg-semantic-income hover:bg-semantic-income/90 text-white font-bold text-base transition-all shadow-lg">
@@ -175,19 +175,19 @@ const ReminderModal: React.FC<ReminderModalProps> = ({ currentReminder, onSubmit
   }, [onCancel]);
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[70] p-4">
-      <div ref={ref} className="bg-dark-card border border-dark-border rounded-2xl shadow-2xl w-full max-w-sm p-6">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[70] p-4">
+      <div ref={ref} className="bg-white/[0.04] border border-white/[0.07] rounded-2xl shadow-2xl w-full max-w-sm p-6">
         <h3 className="text-white font-bold text-lg mb-1">{t('debtDetail.setReminder')}</h3>
         <p className="text-gray-400 text-sm mb-5">{t('debtDetail.reminderDesc')}</p>
         <input type="datetime-local" value={dt} onChange={e => setDt(e.target.value)}
-          className="w-full px-4 py-3 bg-dark-bg border border-dark-border rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple mb-5" />
+          className="w-full px-4 py-3 border border-white/[0.07] rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple mb-5" />
         <div className="flex gap-3">
           {currentReminder && (
             <button onClick={() => onSubmit(null)} className="flex-1 py-2.5 rounded-xl border border-semantic-expense/30 text-semantic-expense hover:bg-semantic-expense/10 transition-all text-sm font-medium">
               {t('debtDetail.removeReminder')}
             </button>
           )}
-          <button onClick={onCancel} className="flex-1 py-2.5 rounded-xl border border-dark-border text-gray-400 hover:text-white transition-all text-sm font-medium">{t('debts.cancel')}</button>
+          <button onClick={onCancel} className="flex-1 py-2.5 rounded-xl border border-white/[0.07] text-gray-400 hover:text-white transition-all text-sm font-medium">{t('debts.cancel')}</button>
           <button onClick={() => onSubmit(dt ? new Date(dt).toISOString() : null)} disabled={!dt}
             className="flex-1 py-2.5 rounded-xl bg-brand-purple hover:bg-brand-purple-light text-white font-semibold transition-all text-sm disabled:opacity-50">
             {t('debts.save')}
@@ -229,32 +229,32 @@ const EditModal: React.FC<EditModalProps> = ({ debt, onSubmit, onCancel }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center z-[70] p-0 sm:p-4">
-      <div ref={ref} className="bg-dark-card w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden">
-        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-dark-border">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-end sm:items-center justify-center z-[70] p-0 sm:p-4">
+      <div ref={ref} className="bg-white/[0.04] w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden">
+        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/[0.07]">
           <h2 className="text-white font-bold text-lg">{t('debtDetail.editDebt')}</h2>
-          <button onClick={onCancel} className="w-8 h-8 flex items-center justify-center rounded-full bg-dark-bg text-gray-400 hover:text-white">✕</button>
+          <button onClick={onCancel} className="w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:text-white">✕</button>
         </div>
         <div className="px-6 py-5 space-y-4">
           <div>
             <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">{t('debts.person')}</label>
             <input type="text" value={personName} onChange={e => setPersonName(e.target.value)}
-              className="w-full px-4 py-3 bg-dark-bg border border-dark-border rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple" />
+              className="w-full px-4 py-3 border border-white/[0.07] rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple" />
           </div>
           <div>
             <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">{t('debts.amount')}</label>
             <input type="number" value={amount} onChange={e => setAmount(e.target.value)} min="0.01" step="0.01"
-              className="w-full px-4 py-3 bg-dark-bg border border-dark-border rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple" />
+              className="w-full px-4 py-3 border border-white/[0.07] rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple" />
           </div>
           <div>
             <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">{t('debts.dueDate')}</label>
             <input type="date" value={dueDate} onChange={e => setDueDate(e.target.value)}
-              className="w-full px-4 py-3 bg-dark-bg border border-dark-border rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple" />
+              className="w-full px-4 py-3 border border-white/[0.07] rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple" />
           </div>
           <div>
             <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">{t('debts.description')}</label>
             <input type="text" value={description} onChange={e => setDescription(e.target.value)}
-              className="w-full px-4 py-3 bg-dark-bg border border-dark-border rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple" />
+              className="w-full px-4 py-3 border border-white/[0.07] rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple" />
           </div>
           <button onClick={handleSave} className="w-full py-4 rounded-2xl bg-brand-purple hover:bg-brand-purple-light text-white font-bold text-base transition-all">
             {t('debts.save')}
@@ -396,9 +396,9 @@ export const DebtDetail: React.FC = () => {
   return (
     <AppLayout>
       {/* Header */}
-      <header className="bg-dark-bg border-b border-dark-border px-6 py-4">
+      <header className="border-b border-white/[0.07] px-6 py-4">
         <div className="flex items-center gap-4">
-          <button onClick={() => navigate('/debts')} className="w-10 h-10 flex items-center justify-center rounded-full bg-dark-card border border-dark-border text-gray-400 hover:text-white transition-colors">
+          <button onClick={() => navigate('/debts')} className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.04] border border-white/[0.07] text-gray-400 hover:text-white transition-colors">
             ←
           </button>
           <div className={`w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-white ${getAvatarColor(debt.person_name)}`}>
@@ -417,12 +417,12 @@ export const DebtDetail: React.FC = () => {
           </div>
           {/* Menu */}
           <div className="relative" ref={menuRef}>
-            <button onClick={() => setShowMenu(v => !v)} className="w-10 h-10 flex items-center justify-center rounded-full bg-dark-card border border-dark-border text-gray-400 hover:text-white">
+            <button onClick={() => setShowMenu(v => !v)} className="w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.04] border border-white/[0.07] text-gray-400 hover:text-white">
               ⋮
             </button>
             {showMenu && (
-              <div className="absolute right-0 top-12 bg-dark-card border border-dark-border rounded-xl shadow-xl z-20 min-w-[160px] py-1">
-                <button onClick={() => { setShowMenu(false); setShowEditModal(true); }} className="w-full px-4 py-2.5 text-left text-sm text-gray-400 hover:bg-dark-hover flex items-center gap-2">
+              <div className="absolute right-0 top-12 bg-white/[0.04] border border-white/[0.07] rounded-xl shadow-xl z-20 min-w-[160px] py-1">
+                <button onClick={() => { setShowMenu(false); setShowEditModal(true); }} className="w-full px-4 py-2.5 text-left text-sm text-gray-400 hover:bg-white/[0.06] flex items-center gap-2">
                   ✏️ {t('debtDetail.edit')}
                 </button>
                 <button onClick={() => { setShowMenu(false); handleDelete(); }} className="w-full px-4 py-2.5 text-left text-sm text-semantic-expense hover:bg-semantic-expense/10 flex items-center gap-2">
@@ -436,7 +436,7 @@ export const DebtDetail: React.FC = () => {
 
       <div className="p-4 sm:p-6 space-y-5 max-w-2xl mx-auto">
         {/* Main Card — Amount & Progress */}
-        <div className="bg-dark-card border border-dark-border rounded-2xl p-6">
+        <div className="bg-white/[0.04] border border-white/[0.07] rounded-2xl p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
               <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">
@@ -484,7 +484,7 @@ export const DebtDetail: React.FC = () => {
               <span className="text-gray-400 text-xs font-semibold uppercase tracking-wider">{t('debtDetail.repaymentProgress')}</span>
               <span className="text-white text-sm font-bold">{pct.toFixed(0)}%</span>
             </div>
-            <div className="w-full h-3 bg-dark-bg rounded-full overflow-hidden">
+            <div className="w-full h-3 rounded-full overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-500"
                 style={{
@@ -506,17 +506,17 @@ export const DebtDetail: React.FC = () => {
         {!debt.is_paid && (
           <div className="grid grid-cols-3 gap-3">
             <button onClick={() => setShowReminderModal(true)}
-              className="flex flex-col items-center gap-2 py-4 bg-dark-card border border-dark-border rounded-2xl hover:border-brand-purple/40 transition-all">
+              className="flex flex-col items-center gap-2 py-4 bg-white/[0.04] border border-white/[0.07] rounded-2xl hover:border-brand-purple/40 transition-all">
               <span className="text-2xl">🔔</span>
               <span className="text-xs text-gray-400 font-medium">{t('debtDetail.reminder')}</span>
             </button>
             <button onClick={() => setShowSettleModal(true)}
-              className="flex flex-col items-center gap-2 py-4 bg-dark-card border border-dark-border rounded-2xl hover:border-semantic-income/40 transition-all">
+              className="flex flex-col items-center gap-2 py-4 bg-white/[0.04] border border-white/[0.07] rounded-2xl hover:border-semantic-income/40 transition-all">
               <span className="text-2xl">✓</span>
               <span className="text-xs text-gray-400 font-medium">{t('debts.markPaid')}</span>
             </button>
             <button onClick={() => setShowPaymentModal(true)}
-              className="flex flex-col items-center gap-2 py-4 bg-dark-card border border-dark-border rounded-2xl hover:border-brand-purple/40 transition-all">
+              className="flex flex-col items-center gap-2 py-4 bg-white/[0.04] border border-white/[0.07] rounded-2xl hover:border-brand-purple/40 transition-all">
               <span className="text-2xl">💸</span>
               <span className="text-xs text-gray-400 font-medium">{t('debtDetail.addPayment')}</span>
             </button>
@@ -536,16 +536,16 @@ export const DebtDetail: React.FC = () => {
         )}
 
         {/* Activity Timeline */}
-        <div className="bg-dark-card border border-dark-border rounded-2xl p-5">
+        <div className="bg-white/[0.04] border border-white/[0.07] rounded-2xl p-5">
           <h3 className="text-white font-bold text-sm mb-4">{t('debtDetail.activity')}</h3>
           <div className="space-y-0">
             {timeline.map((item, i) => (
               <div key={i} className="flex gap-3 relative">
                 {/* Vertical line */}
                 {i < timeline.length - 1 && (
-                  <div className="absolute left-[15px] top-8 bottom-0 w-px bg-dark-border" />
+                  <div className="absolute left-[15px] top-8 bottom-0 w-px bg-white/[0.07]" />
                 )}
-                <div className="w-8 h-8 flex items-center justify-center bg-dark-bg rounded-full text-sm flex-shrink-0 z-10 border border-dark-border">
+                <div className="w-8 h-8 flex items-center justify-center rounded-full text-sm flex-shrink-0 z-10 border border-white/[0.07]">
                   {item.icon}
                 </div>
                 <div className="flex-1 min-w-0 pb-5">
@@ -565,14 +565,14 @@ export const DebtDetail: React.FC = () => {
         </div>
 
         {/* Personal Note */}
-        <div className="bg-dark-card border border-dark-border rounded-2xl p-5">
+        <div className="bg-white/[0.04] border border-white/[0.07] rounded-2xl p-5">
           <h3 className="text-white font-bold text-sm mb-3">{t('debtDetail.personalNote')}</h3>
           <textarea
             value={personalNote}
             onChange={e => setPersonalNote(e.target.value)}
             placeholder={t('debtDetail.personalNotePlaceholder')}
             rows={3}
-            className="w-full px-4 py-3 bg-dark-bg border border-dark-border rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none"
+            className="w-full px-4 py-3 border border-white/[0.07] rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none"
           />
           {personalNote !== (debt.personal_note || '') && (
             <button onClick={handleSaveNote} disabled={isSavingNote}
@@ -584,7 +584,7 @@ export const DebtDetail: React.FC = () => {
 
         {/* Description */}
         {debt.description && (
-          <div className="bg-dark-card border border-dark-border rounded-2xl p-5">
+          <div className="bg-white/[0.04] border border-white/[0.07] rounded-2xl p-5">
             <h3 className="text-white font-bold text-sm mb-2">{t('debts.description')}</h3>
             <p className="text-gray-400 text-sm">{debt.description}</p>
           </div>

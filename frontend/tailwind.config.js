@@ -8,12 +8,12 @@ export default {
     extend: {
       colors: {
         dark: {
-          bg: '#000000',
-          card: '#1A1A1A',
-          border: '#2A2A2A',
-          hover: '#252525',
+          bg: '#050510',
+          card: 'rgba(255,255,255,0.04)',
+          border: 'rgba(255,255,255,0.07)',
+          hover: 'rgba(255,255,255,0.06)',
         },
-        /* Brand colors (same in both themes) */
+        /* Brand colors */
         brand: {
           purple: '#F5C518',
           'purple-light': '#FFD93D',
@@ -62,6 +62,11 @@ export default {
         'lg': '0 10px 15px rgba(0,0,0,0.5)',
         'xl': '0 20px 25px rgba(0,0,0,0.6)',
         'glow': '0 0 20px rgba(245,197,24,0.5)',
+        'glow-sm': '0 0 10px rgba(245,197,24,0.3)',
+        'glow-purple': '0 0 30px rgba(124,58,237,0.15)',
+        'glow-blue': '0 0 30px rgba(14,165,233,0.15)',
+        'glass': '0 8px 32px rgba(0,0,0,0.3)',
+        'glass-lg': '0 16px 48px rgba(0,0,0,0.4)',
         'income': '0 8px 24px rgba(0,184,148,0.35)',
         'expense': '0 8px 24px rgba(225,112,85,0.35)',
         'purple': '0 8px 24px rgba(245,197,24,0.35)',
@@ -87,6 +92,10 @@ export default {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.6' },
         },
+        'shimmer': {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
       },
       animation: {
         'slide-up': 'slide-up 0.3s cubic-bezier(0.32,0.72,0,1) forwards',
@@ -94,6 +103,7 @@ export default {
         'fade-in-up': 'fade-in-up 0.3s ease-out forwards',
         'scale-in': 'scale-in 0.2s ease-out forwards',
         'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
+        'shimmer': 'shimmer 3s ease-in-out infinite',
       },
     },
   },

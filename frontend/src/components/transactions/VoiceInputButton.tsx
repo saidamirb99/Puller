@@ -53,7 +53,7 @@ export const VoiceInputButton: React.FC<VoiceInputButtonProps> = ({ onParsed, on
   };
 
   return (
-    <div className="border-t border-dark-border pt-3">
+    <div className="border-t border-white/[0.07] pt-3">
       <div className="flex items-center gap-3">
         {/* Mic button */}
         <button
@@ -64,8 +64,8 @@ export const VoiceInputButton: React.FC<VoiceInputButtonProps> = ({ onParsed, on
             state === 'recording'
               ? 'bg-red-500 animate-pulse shadow-lg shadow-red-500/30'
               : state === 'processing' || state === 'requesting'
-              ? 'bg-dark-bg opacity-50 cursor-wait'
-              : 'bg-dark-bg hover:bg-brand-purple/20 hover:text-brand-purple'
+              ? 'bg-white/[0.02] opacity-50 cursor-wait'
+              : 'bg-white/[0.02] hover:bg-brand-purple/20 hover:text-brand-purple'
           }`}
         >
           {state === 'processing' || state === 'requesting' ? (

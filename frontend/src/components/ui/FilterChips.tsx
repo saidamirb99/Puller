@@ -30,7 +30,7 @@ export const FilterChips: React.FC<FilterChipsProps> = ({
             ${
               activeChip === chip.value
                 ? 'bg-brand-purple text-white shadow-md'
-                : 'bg-transparent text-gray-400 border border-dark-border hover:border-brand-purple hover:text-brand-purple'
+                : 'bg-transparent text-gray-400 border border-white/[0.07] hover:border-brand-purple hover:text-brand-purple'
             }
           `}
         >

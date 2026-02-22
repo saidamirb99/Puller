@@ -225,8 +225,8 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
       className="fixed inset-0 z-50 flex items-end justify-center sm:items-center"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={onClose} />
-      <div className="relative w-full max-w-sm bg-[#0D0D0D] rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden animate-slide-up border border-[#1A1A1A] sm:border-[#2A2A2A]">
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative w-full max-w-sm glass-modal rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden animate-slide-up border border-white/[0.05] sm:border-white/[0.07]">
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[2px]"
           style={{ background: `linear-gradient(90deg, transparent, ${accentColor}60, transparent)` }} />
@@ -315,7 +315,7 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
           {mode === 'debt' && (
             <>
               {/* Debt direction sub-tabs */}
-              <div className="flex bg-dark-bg rounded-xl overflow-hidden">
+              <div className="flex rounded-xl overflow-hidden">
                 {(['RECEIVABLE', 'DEBT'] as const).map(dt => (
                   <button
                     key={dt}
@@ -334,8 +334,8 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
               </div>
 
               {/* Person */}
-              <div className="flex items-center gap-3 py-3 border-t border-dark-border">
-                <div className="w-8 h-8 rounded-full bg-dark-bg flex items-center justify-center text-gray-400">👤</div>
+              <div className="flex items-center gap-3 py-3 border-t border-white/[0.07]">
+                <div className="w-8 h-8 rounded-full bg-white/[0.02] flex items-center justify-center text-gray-400">👤</div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">{t('debts.person')}</p>
                   <input
@@ -349,8 +349,8 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
               </div>
 
               {/* Due Date */}
-              <div className="flex items-center gap-3 py-3 border-t border-dark-border">
-                <div className="w-8 h-8 rounded-full bg-dark-bg flex items-center justify-center text-gray-400">📅</div>
+              <div className="flex items-center gap-3 py-3 border-t border-white/[0.07]">
+                <div className="w-8 h-8 rounded-full bg-white/[0.02] flex items-center justify-center text-gray-400">📅</div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-0.5">{t('debts.dueDateOptional')}</p>
                   <input
@@ -363,7 +363,7 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
               </div>
 
               {/* Debt Category chips */}
-              <div className="border-t border-dark-border pt-3">
+              <div className="border-t border-white/[0.07] pt-3">
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-3 font-medium">{t('modal.category')}</p>
                 <div className="flex gap-2 flex-wrap">
                   {DEBT_CATEGORIES.map(cat => {
@@ -376,7 +376,7 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all border ${
                           isSelected
                             ? 'bg-brand-purple/20 border-brand-purple text-brand-purple'
-                            : 'border-dark-border text-gray-400 hover:border-gray-500'
+                            : 'border-white/[0.07] text-gray-400 hover:border-gray-500'
                         }`}
                       >
                         {cat.emoji} {t(cat.labelKey)}
@@ -387,8 +387,8 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
               </div>
 
               {/* Debt Note */}
-              <div className="flex items-start gap-3 py-3 border-t border-dark-border">
-                <div className="w-8 h-8 rounded-full bg-dark-bg flex items-center justify-center text-gray-400 mt-0.5">💬</div>
+              <div className="flex items-start gap-3 py-3 border-t border-white/[0.07]">
+                <div className="w-8 h-8 rounded-full bg-white/[0.02] flex items-center justify-center text-gray-400 mt-0.5">💬</div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">{t('debts.note')}</p>
                   <input
@@ -402,21 +402,21 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
               </div>
 
               {/* Account picker for debt */}
-              <div className="flex justify-center border-t border-dark-border pt-3">
+              <div className="flex justify-center border-t border-white/[0.07] pt-3">
                 <div className="relative" ref={accountPickerRef}>
                   <button
                     onClick={() => setShowAccountPicker(!showAccountPicker)}
-                    className="flex items-center gap-2 bg-dark-bg hover:bg-dark-hover border border-dark-border rounded-full px-4 py-1.5 text-sm text-white transition-all"
+                    className="flex items-center gap-2 bg-white/[0.02] hover:bg-white/[0.08] border border-white/[0.07] rounded-full px-4 py-1.5 text-sm text-white transition-all"
                   >
                     <span>{selectedAccount?.icon || '💸'}</span>
                     <span className="font-medium">{selectedAccount?.name || t('debts.noAccount')}</span>
                     <span className="text-gray-400 text-xs">▾</span>
                   </button>
                   {showAccountPicker && (
-                    <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 w-56 bg-dark-card border border-dark-border rounded-xl shadow-xl z-10 overflow-hidden">
+                    <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 w-56 bg-white/[0.04] border border-white/[0.07] rounded-xl shadow-xl z-10 overflow-hidden">
                       <button
                         onClick={() => { setAccountId(''); setShowAccountPicker(false); }}
-                        className="w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-dark-hover transition-colors text-white"
+                        className="w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-white/[0.08] transition-colors text-white"
                       >
                         <span>💸</span>
                         <span className="text-gray-400">{t('debts.noAccount')}</span>
@@ -425,7 +425,7 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
                         <button
                           key={acc.id}
                           onClick={() => { setAccountId(acc.id); setShowAccountPicker(false); }}
-                          className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-dark-hover transition-colors ${acc.id === accountId ? 'text-brand-purple' : 'text-white'}`}
+                          className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-white/[0.08] transition-colors ${acc.id === accountId ? 'text-brand-purple' : 'text-white'}`}
                         >
                           <span className="text-lg">{acc.icon}</span>
                           <div className="text-left flex-1">
@@ -450,21 +450,21 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
                 <div className="relative" ref={accountPickerRef}>
                   <button
                     onClick={() => setShowAccountPicker(!showAccountPicker)}
-                    className="flex items-center gap-2 bg-dark-bg hover:bg-dark-hover border border-dark-border rounded-full px-4 py-1.5 text-sm text-white transition-all"
+                    className="flex items-center gap-2 bg-white/[0.02] hover:bg-white/[0.08] border border-white/[0.07] rounded-full px-4 py-1.5 text-sm text-white transition-all"
                   >
                     <span>{selectedAccount?.icon || '🏦'}</span>
                     <span className="font-medium">{selectedAccount?.name || t('modal.selectAccount')}</span>
                     <span className="text-gray-400 text-xs">▾</span>
                   </button>
                   {showAccountPicker && (
-                    <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 w-56 bg-dark-card border border-dark-border rounded-xl shadow-xl z-10 overflow-hidden">
+                    <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 w-56 bg-white/[0.04] border border-white/[0.07] rounded-xl shadow-xl z-10 overflow-hidden">
                       {accounts.length === 0 ? (
                         <p className="text-gray-400 text-sm px-4 py-3">{t('modal.noAccounts')}</p>
                       ) : accounts.map((acc) => (
                         <button
                           key={acc.id}
                           onClick={() => { setAccountId(acc.id); setShowAccountPicker(false); }}
-                          className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-dark-hover transition-colors ${acc.id === accountId ? 'text-brand-purple' : 'text-white'}`}
+                          className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-white/[0.08] transition-colors ${acc.id === accountId ? 'text-brand-purple' : 'text-white'}`}
                         >
                           <span className="text-lg">{acc.icon}</span>
                           <div className="text-left flex-1">
@@ -513,8 +513,8 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
               )}
 
               {/* Date */}
-              <div className="flex items-center gap-3 py-3 border-t border-dark-border">
-                <div className="w-8 h-8 rounded-full bg-dark-bg flex items-center justify-center text-gray-400">📅</div>
+              <div className="flex items-center gap-3 py-3 border-t border-white/[0.07]">
+                <div className="w-8 h-8 rounded-full bg-white/[0.02] flex items-center justify-center text-gray-400">📅</div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-0.5">{t('modal.date')}</p>
                   <p className="text-white text-sm font-medium">{formatDateDisplay(date)}</p>
@@ -525,8 +525,8 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
               </div>
 
               {/* Description */}
-              <div className="flex items-start gap-3 py-3 border-t border-dark-border">
-                <div className="w-8 h-8 rounded-full bg-dark-bg flex items-center justify-center text-gray-400 mt-0.5">📝</div>
+              <div className="flex items-start gap-3 py-3 border-t border-white/[0.07]">
+                <div className="w-8 h-8 rounded-full bg-white/[0.02] flex items-center justify-center text-gray-400 mt-0.5">📝</div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">{t('modal.description')}</p>
                   <input
@@ -540,8 +540,8 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
               </div>
 
               {/* Merchant */}
-              <div className="flex items-center gap-3 py-3 border-t border-dark-border">
-                <div className="w-8 h-8 rounded-full bg-dark-bg flex items-center justify-center text-gray-400">
+              <div className="flex items-center gap-3 py-3 border-t border-white/[0.07]">
+                <div className="w-8 h-8 rounded-full bg-white/[0.02] flex items-center justify-center text-gray-400">
                   {isExpense ? '💳' : '👤'}
                 </div>
                 <div className="flex-1">
@@ -559,8 +559,8 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({
               </div>
 
               {/* Note */}
-              <div className="flex items-start gap-3 py-3 border-t border-dark-border">
-                <div className="w-8 h-8 rounded-full bg-dark-bg flex items-center justify-center text-gray-400 mt-0.5">💬</div>
+              <div className="flex items-start gap-3 py-3 border-t border-white/[0.07]">
+                <div className="w-8 h-8 rounded-full bg-white/[0.02] flex items-center justify-center text-gray-400 mt-0.5">💬</div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">{t('modal.note')}</p>
                   <input

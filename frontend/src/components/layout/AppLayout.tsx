@@ -23,7 +23,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="flex min-h-screen bg-dark-bg">
+    <div className="flex min-h-screen relative z-10">
       {/* Sidebar — desktop only */}
       <div className="hidden md:flex">
         <Sidebar />

@@ -139,7 +139,7 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
           placeholder={t('accountForm.namePlaceholder')}
           value={formData.name}
           onChange={handleChange}
-          className="w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#F5C518]/40 transition-colors"
+          className="w-full bg-white/[0.06] border border-white/[0.07] rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#F5C518]/40 transition-colors"
         />
         {errors.name && <p className="text-[#E17055] text-xs mt-1">{errors.name}</p>}
       </div>
@@ -159,9 +159,9 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
                 onClick={() => setFormData(prev => ({ ...prev, account_type: option.value }))}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all flex-shrink-0"
                 style={{
-                  backgroundColor: isActive ? '#F5C51818' : '#1A1A1A',
+                  backgroundColor: isActive ? '#F5C51818' : 'rgba(255,255,255,0.06)',
                   color: isActive ? '#F5C518' : '#9CA3AF',
-                  border: isActive ? '1.5px solid #F5C518' : '1.5px solid #2A2A2A',
+                  border: isActive ? '1.5px solid #F5C518' : '1.5px solid rgba(255,255,255,0.07)',
                 }}
               >
                 <span>{option.icon}</span>
@@ -185,9 +185,9 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
               setCurrencySearch('');
               setTimeout(() => currencyInputRef.current?.focus(), 50);
             }}
-            className="w-full bg-[#1A1A1A] border rounded-xl px-4 py-3 text-sm text-left flex items-center gap-2 transition-colors"
+            className="w-full bg-white/[0.06] border rounded-xl px-4 py-3 text-sm text-left flex items-center gap-2 transition-colors"
             style={{
-              borderColor: currencyOpen ? 'rgba(245,197,24,0.4)' : '#2A2A2A',
+              borderColor: currencyOpen ? 'rgba(245,197,24,0.4)' : 'rgba(255,255,255,0.07)',
             }}
           >
             {selectedCurrency ? (
@@ -205,10 +205,10 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
           </button>
 
           {currencyOpen && (
-            <div className="absolute z-50 top-full mt-1 left-0 right-0 bg-[#0D0D0D] border border-[#2A2A2A] rounded-xl shadow-2xl overflow-hidden"
+            <div className="absolute z-50 top-full mt-1 left-0 right-0 bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.07] rounded-xl shadow-2xl overflow-hidden"
               style={{ boxShadow: '0 16px 48px rgba(0,0,0,0.5)' }}>
               {/* Search */}
-              <div className="p-2 border-b border-[#1A1A1A]">
+              <div className="p-2 border-b border-white/[0.05]">
                 <div className="relative">
                   <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                     <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
@@ -219,7 +219,7 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
                     placeholder={t('accountForm.searchCurrency')}
                     value={currencySearch}
                     onChange={(e) => setCurrencySearch(e.target.value)}
-                    className="w-full bg-[#1A1A1A] rounded-lg pl-9 pr-3 py-2 text-white text-xs placeholder-gray-500 focus:outline-none"
+                    className="w-full bg-white/[0.06] rounded-lg pl-9 pr-3 py-2 text-white text-xs placeholder-gray-500 focus:outline-none"
                   />
                 </div>
               </div>
@@ -239,7 +239,7 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
                           setCurrencyOpen(false);
                           setCurrencySearch('');
                         }}
-                        className="w-full flex items-center gap-2.5 px-3 py-2.5 text-left transition-colors hover:bg-[#1A1A1A]"
+                        className="w-full flex items-center gap-2.5 px-3 py-2.5 text-left transition-colors hover:bg-white/[0.06]"
                         style={{
                           backgroundColor: isSelected ? '#F5C51812' : undefined,
                         }}
@@ -272,7 +272,7 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
             step="0.01"
             value={formData.initial_balance}
             onChange={handleChange}
-            className="w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#F5C518]/40 transition-colors"
+            className="w-full bg-white/[0.06] border border-white/[0.07] rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#F5C518]/40 transition-colors"
           />
         </div>
       </div>
@@ -289,7 +289,7 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
             step="0.01"
             value={formData.credit_limit || ''}
             onChange={handleChange}
-            className="w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#F5C518]/40 transition-colors"
+            className="w-full bg-white/[0.06] border border-white/[0.07] rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#F5C518]/40 transition-colors"
           />
           <p className="text-gray-600 text-[10px] mt-1">{t('accountForm.creditLimitHint')}</p>
         </div>
@@ -307,7 +307,7 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
             placeholder={t('accountForm.institutionPlaceholder')}
             value={formData.institution || ''}
             onChange={handleChange}
-            className="w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#F5C518]/40 transition-colors"
+            className="w-full bg-white/[0.06] border border-white/[0.07] rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#F5C518]/40 transition-colors"
           />
         </div>
 
@@ -322,7 +322,7 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
             maxLength={4}
             value={formData.account_number_last4 || ''}
             onChange={handleChange}
-            className="w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#F5C518]/40 transition-colors"
+            className="w-full bg-white/[0.06] border border-white/[0.07] rounded-xl px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#F5C518]/40 transition-colors"
           />
           {errors.account_number_last4 && <p className="text-[#E17055] text-xs mt-1">{errors.account_number_last4}</p>}
         </div>
@@ -342,7 +342,7 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
               className="w-9 h-9 rounded-full transition-all"
               style={{
                 backgroundColor: color,
-                boxShadow: formData.color === color ? `0 0 0 2px #0D0D0D, 0 0 0 4px ${color}` : 'none',
+                boxShadow: formData.color === color ? `0 0 0 2px #0c0c18, 0 0 0 4px ${color}` : 'none',
                 transform: formData.color === color ? 'scale(1.1)' : 'scale(1)',
               }}
             />
@@ -358,7 +358,7 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
           className="w-5 h-5 rounded-md flex items-center justify-center transition-all"
           style={{
             backgroundColor: formData.exclude_from_total ? '#F5C518' : 'transparent',
-            border: formData.exclude_from_total ? '1.5px solid #F5C518' : '1.5px solid #2A2A2A',
+            border: formData.exclude_from_total ? '1.5px solid #F5C518' : '1.5px solid rgba(255,255,255,0.07)',
           }}
         >
           {formData.exclude_from_total && (
@@ -394,7 +394,7 @@ export const AccountForm: React.FC<AccountFormProps> = ({ account, onSubmit, onC
         <button
           type="button"
           onClick={onCancel}
-          className="flex-1 py-3.5 rounded-2xl border border-[#2A2A2A] text-gray-400 hover:text-white hover:border-[#F5C518]/30 transition-all text-sm font-medium"
+          className="flex-1 py-3.5 rounded-2xl border border-white/[0.07] text-gray-400 hover:text-white hover:border-[#F5C518]/30 transition-all text-sm font-medium"
         >
           {t('accountForm.cancel')}
         </button>

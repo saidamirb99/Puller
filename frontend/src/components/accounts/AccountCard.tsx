@@ -18,11 +18,11 @@ const accountTypeLabelKeys: Record<string, string> = {
 };
 
 const CARD_GRADIENTS_DARK: Record<string, string> = {
-  [AccountType.CHECKING]: 'linear-gradient(135deg, #1C1C1C 0%, #0D0D0D 100%)',
-  [AccountType.SAVINGS]: 'linear-gradient(135deg, #0D1A0D 0%, #0D0D0D 100%)',
-  [AccountType.CREDIT_CARD]: 'linear-gradient(135deg, #1A1A00 0%, #0D0D0D 100%)',
-  [AccountType.CASH]: 'linear-gradient(135deg, #1A1A1A 0%, #0D0D0D 100%)',
-  [AccountType.INVESTMENT]: 'linear-gradient(135deg, #0D0D1A 0%, #0D0D0D 100%)',
+  [AccountType.CHECKING]: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(12,12,24,0.8) 100%)',
+  [AccountType.SAVINGS]: 'linear-gradient(135deg, rgba(13,26,13,0.6) 0%, rgba(12,12,24,0.8) 100%)',
+  [AccountType.CREDIT_CARD]: 'linear-gradient(135deg, rgba(26,26,0,0.6) 0%, rgba(12,12,24,0.8) 100%)',
+  [AccountType.CASH]: 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(12,12,24,0.8) 100%)',
+  [AccountType.INVESTMENT]: 'linear-gradient(135deg, rgba(13,13,26,0.6) 0%, rgba(12,12,24,0.8) 100%)',
 };
 
 
@@ -41,7 +41,7 @@ export const AccountCard: React.FC<AccountCardProps> = ({ account, onEdit, onDel
 
   return (
     <div
-      className="relative rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 border border-[#2A2A2A] hover:-translate-y-1 hover:border-[#F5C518]/20 hover:shadow-[0_0_30px_rgba(245,197,24,0.08)]"
+      className="relative rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 border border-white/[0.07] backdrop-blur-2xl hover:-translate-y-1 hover:border-[#F5C518]/20 hover:shadow-[0_0_30px_rgba(245,197,24,0.08)]"
       style={{ background: CARD_GRADIENTS_DARK[account.account_type] || CARD_GRADIENTS_DARK[AccountType.CASH] }}
     >
       {/* Top accent line */}
@@ -49,7 +49,7 @@ export const AccountCard: React.FC<AccountCardProps> = ({ account, onEdit, onDel
         style={{ background: `linear-gradient(90deg, transparent, ${cardColor}60, transparent)` }} />
 
       {/* Subtle glow */}
-      <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-[0.04]"
+      <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-[0.07]"
         style={{ background: `radial-gradient(circle, ${cardColor}, transparent)` }} />
 
       {/* Actions */}

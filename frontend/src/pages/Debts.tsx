@@ -73,8 +73,8 @@ const SettleModal: React.FC<SettleModalProps> = ({ debt, accounts, onConfirm, on
   }, [onCancel]);
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-[70] p-4">
-      <div ref={ref} className="relative bg-[#0D0D0D] border border-[#2A2A2A] rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm backdrop-blur-md flex items-center justify-center z-[70] p-4">
+      <div ref={ref} className="relative bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.07] rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-[2px]"
           style={{ background: 'linear-gradient(90deg, transparent, #00B89460, transparent)' }} />
         <div className="p-6">
@@ -84,7 +84,7 @@ const SettleModal: React.FC<SettleModalProps> = ({ debt, accounts, onConfirm, on
             <button
               onClick={() => setSelected('')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border transition-all ${
-                selected === '' ? 'border-[#F5C518] bg-[#F5C518]/10' : 'border-[#2A2A2A] hover:border-[#F5C518]/30'
+                selected === '' ? 'border-[#F5C518] bg-[#F5C518]/10' : 'border-white/[0.07] hover:border-[#F5C518]/30'
               }`}
             >
               <span className="text-xl">💸</span>
@@ -95,7 +95,7 @@ const SettleModal: React.FC<SettleModalProps> = ({ debt, accounts, onConfirm, on
                 key={acc.id}
                 onClick={() => setSelected(acc.id)}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border transition-all ${
-                  selected === acc.id ? 'border-[#F5C518] bg-[#F5C518]/10' : 'border-[#2A2A2A] hover:border-[#F5C518]/30'
+                  selected === acc.id ? 'border-[#F5C518] bg-[#F5C518]/10' : 'border-white/[0.07] hover:border-[#F5C518]/30'
                 }`}
               >
                 <span className="text-xl">{acc.icon}</span>
@@ -108,7 +108,7 @@ const SettleModal: React.FC<SettleModalProps> = ({ debt, accounts, onConfirm, on
           </div>
           <div className="flex gap-3">
             <button onClick={onCancel}
-              className="flex-1 py-3 rounded-xl border border-[#2A2A2A] text-gray-400 hover:text-white hover:border-[#F5C518]/30 transition-all text-sm font-medium">
+              className="flex-1 py-3 rounded-xl border border-white/[0.07] text-gray-400 hover:text-white hover:border-[#F5C518]/30 transition-all text-sm font-medium">
               {t('debts.cancel')}
             </button>
             <button onClick={() => onConfirm(selected || null)}
@@ -142,11 +142,11 @@ const DebtCard: React.FC<DebtCardProps> = ({ debt, onMarkPaid, onDelete, onClick
   return (
     <div
       onClick={() => onClick(debt.id)}
-      className={`relative bg-[#0D0D0D] rounded-2xl p-4 transition-all cursor-pointer group overflow-hidden ${
+      className={`relative bg-[#0c0c18]/80 backdrop-blur-2xl rounded-2xl p-4 transition-all cursor-pointer group overflow-hidden ${
         debt.is_paid ? 'opacity-60' : 'hover:bg-[#111]'
       }`}
       style={{
-        border: `1px solid ${isOverdue ? '#E1705540' : '#2A2A2A'}`,
+        border: `1px solid ${isOverdue ? '#E1705540' : 'rgba(255,255,255,0.07)'}`,
         borderLeftWidth: '3px',
         borderLeftColor: isReceivable ? '#00B894' : '#E17055',
       }}
@@ -402,11 +402,11 @@ export const Debts: React.FC = () => {
 
           {/* ═══ HERO HEADER ═══════════════════════════════════ */}
           <motion.div variants={itemV}>
-            <div className="relative rounded-3xl overflow-hidden bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A]">
+            <div className="relative rounded-3xl overflow-hidden glass">
               {/* Gold accent line */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C518] to-transparent opacity-60" />
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C518] to-transparent opacity-80" />
               {/* Radial glow */}
-              <div className="absolute -top-20 right-10 w-60 h-60 rounded-full opacity-[0.03]"
+              <div className="absolute -top-20 right-10 w-60 h-60 rounded-full opacity-[0.06]"
                 style={{ background: 'radial-gradient(circle, #F5C518, transparent)' }} />
               <div className="relative z-10 p-4 sm:p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
                 <div>
@@ -429,7 +429,7 @@ export const Debts: React.FC = () => {
 
           {/* ═══ SUMMARY CARDS ═══════════════════════════════ */}
           <motion.div variants={itemV} className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            <div className="relative bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl p-5 overflow-hidden">
+            <div className="relative glass rounded-2xl p-5 overflow-hidden">
               <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full opacity-[0.05]"
                 style={{ background: 'radial-gradient(circle, #E17055, transparent)' }} />
               <div className="relative z-10 flex items-center gap-3">
@@ -443,7 +443,7 @@ export const Debts: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="relative bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl p-5 overflow-hidden">
+            <div className="relative glass rounded-2xl p-5 overflow-hidden">
               <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full opacity-[0.05]"
                 style={{ background: 'radial-gradient(circle, #00B894, transparent)' }} />
               <div className="relative z-10 flex items-center gap-3">
@@ -471,7 +471,7 @@ export const Debts: React.FC = () => {
 
           {/* ═══ TAB SWITCHER ═══════════════════════════════ */}
           <motion.div variants={itemV}>
-            <div className="flex bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-xl p-1 gap-1">
+            <div className="flex glass rounded-xl p-1 gap-1">
               {(['RECEIVABLE', 'DEBT'] as const).map(tab => {
                 const isActive = activeTab === tab;
                 const color = tab === 'RECEIVABLE' ? '#00B894' : '#E17055';
@@ -505,7 +505,7 @@ export const Debts: React.FC = () => {
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 placeholder={t('debts.searchByName')}
-                className="w-full pl-10 pr-4 py-3 bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#F5C518]/40 transition-colors"
+                className="w-full pl-10 pr-4 py-3 glass rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#F5C518]/40 transition-colors"
               />
             </div>
 
@@ -516,7 +516,7 @@ export const Debts: React.FC = () => {
                 style={{
                   backgroundColor: categoryFilter === '' ? '#F5C51818' : 'transparent',
                   color: categoryFilter === '' ? '#F5C518' : '#6B7280',
-                  border: categoryFilter === '' ? '1.5px solid #F5C518' : '1.5px solid #2A2A2A',
+                  border: categoryFilter === '' ? '1.5px solid #F5C518' : '1.5px solid rgba(255,255,255,0.07)',
                 }}
               >
                 {t('debts.allCategories')}
@@ -533,7 +533,7 @@ export const Debts: React.FC = () => {
                     style={{
                       backgroundColor: isActive ? `${color}18` : 'transparent',
                       color: isActive ? color : '#6B7280',
-                      border: isActive ? `1.5px solid ${color}` : '1.5px solid #2A2A2A',
+                      border: isActive ? `1.5px solid ${color}` : '1.5px solid rgba(255,255,255,0.07)',
                     }}
                   >
                     {cat.emoji} {t(labelKey)}
@@ -564,8 +564,8 @@ export const Debts: React.FC = () => {
                 </div>
 
                 {activeDebts.length === 0 ? (
-                  <div className="relative bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl p-10 text-center overflow-hidden">
-                    <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-40 h-40 rounded-full opacity-[0.03]"
+                  <div className="relative glass rounded-2xl p-10 text-center overflow-hidden">
+                    <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-40 h-40 rounded-full opacity-[0.06]"
                       style={{ background: 'radial-gradient(circle, #F5C518, transparent)' }} />
                     <div className="relative z-10">
                       <div className="w-14 h-14 rounded-2xl bg-[#00B894]/10 flex items-center justify-center mx-auto mb-3">
@@ -639,10 +639,10 @@ export const Debts: React.FC = () => {
 
       {/* ═══ ADD ENTRY MODAL ════════════════════════════════ */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-end sm:items-center justify-center z-50 p-0 sm:p-4">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm backdrop-blur-md flex items-end sm:items-center justify-center z-50 p-0 sm:p-4">
           <div
             ref={modalRef}
-            className="relative w-full sm:max-w-sm bg-[#0D0D0D] rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden border border-[#1A1A1A] sm:border-[#2A2A2A]"
+            className="relative w-full sm:max-w-sm bg-[#0c0c18]/80 backdrop-blur-2xl rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden border border-white/[0.05] sm:border-white/[0.07]"
           >
             {/* Top accent */}
             <div className="absolute top-0 left-0 right-0 h-[2px]"
@@ -710,8 +710,8 @@ export const Debts: React.FC = () => {
               )}
 
               {/* Person */}
-              <div className="flex items-center gap-3 py-3 border-t border-[#1A1A1A]">
-                <div className="w-8 h-8 rounded-full bg-[#1A1A1A] flex items-center justify-center text-gray-400">👤</div>
+              <div className="flex items-center gap-3 py-3 border-t border-white/[0.05]">
+                <div className="w-8 h-8 rounded-full bg-white/[0.06] flex items-center justify-center text-gray-400">👤</div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">{t('debts.person')}</p>
                   <input
@@ -726,8 +726,8 @@ export const Debts: React.FC = () => {
               {formErrors.person && <p className="text-[#E17055] text-xs -mt-2 pl-11">{formErrors.person}</p>}
 
               {/* Due Date */}
-              <div className="flex items-center gap-3 py-3 border-t border-[#1A1A1A]">
-                <div className="w-8 h-8 rounded-full bg-[#1A1A1A] flex items-center justify-center text-gray-400">📅</div>
+              <div className="flex items-center gap-3 py-3 border-t border-white/[0.05]">
+                <div className="w-8 h-8 rounded-full bg-white/[0.06] flex items-center justify-center text-gray-400">📅</div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-0.5">{t('debts.dueDateOptional')}</p>
                   <input
@@ -740,7 +740,7 @@ export const Debts: React.FC = () => {
               </div>
 
               {/* Category Chips */}
-              <div className="border-t border-[#1A1A1A] pt-3">
+              <div className="border-t border-white/[0.05] pt-3">
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-3 font-medium">{t('modal.category')}</p>
                 <div className="flex gap-2 flex-wrap">
                   {CATEGORIES.map(cat => {
@@ -756,7 +756,7 @@ export const Debts: React.FC = () => {
                         style={{
                           backgroundColor: isSelected ? `${color}18` : 'transparent',
                           color: isSelected ? color : '#9CA3AF',
-                          border: isSelected ? `1.5px solid ${color}` : '1.5px solid #2A2A2A',
+                          border: isSelected ? `1.5px solid ${color}` : '1.5px solid rgba(255,255,255,0.07)',
                         }}
                       >
                         {cat.emoji} {t(labelKey)}
@@ -768,13 +768,13 @@ export const Debts: React.FC = () => {
 
               {/* Account (optional) */}
               {accounts.length > 0 && (
-                <div className="border-t border-[#1A1A1A] pt-3">
+                <div className="border-t border-white/[0.05] pt-3">
                   <p className="text-xs text-gray-500 uppercase tracking-wider mb-2 font-medium">{t('debts.linkedAccount')}</p>
                   <div className="relative" ref={accountPickerRef}>
                     <button
                       type="button"
                       onClick={() => setShowAccountPicker(v => !v)}
-                      className="w-full flex items-center gap-3 px-4 py-3 bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl text-left hover:border-[#F5C518]/30 transition-all"
+                      className="w-full flex items-center gap-3 px-4 py-3 bg-white/[0.06] border border-white/[0.07] rounded-xl text-left hover:border-[#F5C518]/30 transition-all"
                     >
                       {selectedAccountForForm ? (
                         <>
@@ -791,7 +791,7 @@ export const Debts: React.FC = () => {
                       <span className="text-gray-600 text-xs">▾</span>
                     </button>
                     {showAccountPicker && (
-                      <div className="absolute top-full left-0 right-0 mt-1 bg-[#0D0D0D] border border-[#2A2A2A] rounded-xl shadow-xl z-10 overflow-hidden max-h-44 overflow-y-auto">
+                      <div className="absolute top-full left-0 right-0 mt-1 bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.07] rounded-xl shadow-xl z-10 overflow-hidden max-h-44 overflow-y-auto">
                         <button
                           type="button"
                           onClick={() => { setForm(f => ({ ...f, accountId: '' })); setShowAccountPicker(false); }}
@@ -819,8 +819,8 @@ export const Debts: React.FC = () => {
               )}
 
               {/* Note */}
-              <div className="flex items-start gap-3 py-3 border-t border-[#1A1A1A]">
-                <div className="w-8 h-8 rounded-full bg-[#1A1A1A] flex items-center justify-center text-gray-400 mt-0.5">💬</div>
+              <div className="flex items-start gap-3 py-3 border-t border-white/[0.05]">
+                <div className="w-8 h-8 rounded-full bg-white/[0.06] flex items-center justify-center text-gray-400 mt-0.5">💬</div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">{t('debts.note')}</p>
                   <input

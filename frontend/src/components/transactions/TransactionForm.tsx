@@ -129,7 +129,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
             className={`px-4 py-2 rounded-xl font-medium transition-all ${
               !isIncome
                 ? 'bg-semantic-expense text-white'
-                : 'bg-dark-card text-gray-400 border border-dark-border'
+                : 'bg-white/[0.04] text-gray-400 border border-white/[0.07]'
             }`}
           >
             💸 {t('modal.expense')}
@@ -140,7 +140,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
             className={`px-4 py-2 rounded-xl font-medium transition-all ${
               isIncome
                 ? 'bg-semantic-income text-white'
-                : 'bg-dark-card text-gray-400 border border-dark-border'
+                : 'bg-white/[0.04] text-gray-400 border border-white/[0.07]'
             }`}
           >
             💰 {t('modal.income')}
@@ -155,7 +155,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
           name="account_id"
           value={formData.account_id}
           onChange={handleChange}
-          className="w-full px-4 py-2.5 bg-dark-card border border-dark-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-brand-purple"
+          className="w-full px-4 py-2.5 bg-white/[0.04] border border-white/[0.07] rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-brand-purple"
         >
           <option value="">{t('modal.selectAccount')}</option>
           {accounts.map((account) => (
@@ -205,7 +205,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
               className={`flex flex-col items-center gap-2 p-3 rounded-xl transition-all ${
                 formData.category_id === category.id
                   ? 'bg-brand-purple ring-2 ring-brand-purple-light'
-                  : 'bg-dark-card border border-dark-border hover:border-brand-purple'
+                  : 'bg-white/[0.04] border border-white/[0.07] hover:border-brand-purple'
               }`}
             >
               <CategoryIcon icon={category.icon} color={category.color} size="md" />
@@ -224,7 +224,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
             name="transaction_date"
             value={formData.transaction_date}
             onChange={handleChange}
-            className="w-full px-4 py-2.5 bg-dark-card border border-dark-border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-brand-purple"
+            className="w-full px-4 py-2.5 bg-white/[0.04] border border-white/[0.07] rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-brand-purple"
           />
         </div>
         <Input
@@ -246,7 +246,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
           onChange={handleChange}
           rows={3}
           placeholder={t('modal.notesPlaceholder')}
-          className="w-full px-4 py-2.5 bg-dark-card border border-dark-border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none"
+          className="w-full px-4 py-2.5 bg-white/[0.04] border border-white/[0.07] rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none"
         />
       </div>
 

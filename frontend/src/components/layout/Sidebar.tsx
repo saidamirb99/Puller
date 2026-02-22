@@ -83,7 +83,7 @@ export const Sidebar: React.FC = () => {
   const initials = (user?.name || 'U').split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
 
   return (
-    <aside className="w-[72px] hover:w-64 group/sidebar bg-[#0A0A0A] border-r border-dark-border flex flex-col flex-shrink-0 transition-all duration-300 overflow-hidden">
+    <aside className="w-[72px] hover:w-64 group/sidebar glass-subtle border-r border-white/[0.05] flex flex-col flex-shrink-0 transition-all duration-300 overflow-hidden">
       {/* Logo */}
       <div className="flex items-center gap-3 px-5 h-16 flex-shrink-0">
         <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 relative"
@@ -161,7 +161,7 @@ export const Sidebar: React.FC = () => {
         </button>
 
         {/* User avatar — links to Settings */}
-        <div className="border-t border-dark-border pt-3 mt-2">
+        <div className="border-t border-white/[0.07] pt-3 mt-2">
           <button
             onClick={() => navigate('/settings')}
             className={`w-full flex items-center gap-3 pl-[10px] pr-3 py-2 rounded-xl transition-all ${

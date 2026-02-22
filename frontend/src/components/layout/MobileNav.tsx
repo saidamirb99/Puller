@@ -65,7 +65,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ onAddTransaction }) => {
   const isActive = (path: string) => location.pathname === path || location.pathname.startsWith(path + '/');
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#0A0A0A] border-t border-[#1A1A1A]"
+    <nav className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#050510]/70 backdrop-blur-2xl border-t border-white/[0.07]"
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
       <div className="flex items-end justify-around px-2 h-16">

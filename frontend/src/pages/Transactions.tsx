@@ -131,11 +131,11 @@ export const Transactions: React.FC = () => {
 
           {/* ═══ HERO HEADER ═══════════════════════════════════ */}
           <motion.div variants={itemV}>
-            <div className="relative rounded-3xl overflow-hidden bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A]">
+            <div className="relative rounded-3xl overflow-hidden glass">
               {/* Gold accent line */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C518] to-transparent opacity-60" />
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C518] to-transparent opacity-80" />
               {/* Radial glow */}
-              <div className="absolute -top-20 right-10 w-60 h-60 rounded-full opacity-[0.03]"
+              <div className="absolute -top-20 right-10 w-60 h-60 rounded-full opacity-[0.06]"
                 style={{ background: 'radial-gradient(circle, #F5C518, transparent)' }} />
               <div className="relative z-10 p-4 sm:p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
                 <div>
@@ -169,7 +169,7 @@ export const Transactions: React.FC = () => {
 
           {/* ═══ SUMMARY PILLS ════════════════════════════════ */}
           <motion.div variants={itemV} className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            <div className="relative bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl p-5 overflow-hidden">
+            <div className="relative glass rounded-2xl p-5 overflow-hidden">
               <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full opacity-[0.05]"
                 style={{ background: 'radial-gradient(circle, #00B894, transparent)' }} />
               <div className="relative z-10 flex items-center gap-3">
@@ -182,7 +182,7 @@ export const Transactions: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="relative bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl p-5 overflow-hidden">
+            <div className="relative glass rounded-2xl p-5 overflow-hidden">
               <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full opacity-[0.05]"
                 style={{ background: 'radial-gradient(circle, #E17055, transparent)' }} />
               <div className="relative z-10 flex items-center gap-3">
@@ -210,7 +210,7 @@ export const Transactions: React.FC = () => {
                   style={{
                     backgroundColor: isActive ? `${color}18` : 'transparent',
                     color: isActive ? color : '#6B7280',
-                    border: isActive ? `1.5px solid ${color}` : '1.5px solid #2A2A2A',
+                    border: isActive ? `1.5px solid ${color}` : '1.5px solid rgba(255,255,255,0.07)',
                   }}
                 >
                   {chip.label}
@@ -230,8 +230,8 @@ export const Transactions: React.FC = () => {
             </div>
           ) : filteredTransactions.length === 0 ? (
             <motion.div variants={itemV}
-              className="relative bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl py-16 text-center overflow-hidden">
-              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 rounded-full opacity-[0.03]"
+              className="relative glass rounded-2xl py-16 text-center overflow-hidden">
+              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 rounded-full opacity-[0.06]"
                 style={{ background: 'radial-gradient(circle, #F5C518, transparent)' }} />
               <div className="relative z-10">
                 <div className="w-16 h-16 rounded-2xl bg-[#F5C518]/10 flex items-center justify-center mx-auto mb-4">

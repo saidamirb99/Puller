@@ -186,12 +186,12 @@ export const TransferModal: React.FC<TransferModalProps> = ({ onSuccess, onClose
           <span className="text-gray-500 text-xs">▾</span>
         </button>
         {show && (
-          <div className="absolute top-full mt-1 left-0 right-0 bg-[#151515] border border-[#2A2A2A] rounded-xl shadow-xl z-20 overflow-hidden max-h-60 overflow-y-auto">
+          <div className="absolute top-full mt-1 left-0 right-0 bg-white/[0.06] backdrop-blur-2xl border border-white/[0.07] rounded-xl shadow-xl z-20 overflow-hidden max-h-60 overflow-y-auto">
             {accounts.filter(a => a.id !== excludeId).map((acc) => (
               <button
                 key={acc.id}
                 onClick={() => { onSelect(acc.id); setShow(false); }}
-                className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-white/[0.04] transition-colors ${acc.id === selectedId ? 'text-[#8B5CF6]' : 'text-white'}`}
+                className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-white/[0.08] transition-colors ${acc.id === selectedId ? 'text-[#8B5CF6]' : 'text-white'}`}
               >
                 <span className="text-lg">{acc.icon}</span>
                 <div className="text-left flex-1">
@@ -212,8 +212,8 @@ export const TransferModal: React.FC<TransferModalProps> = ({ onSuccess, onClose
       className="fixed inset-0 z-50 flex items-end justify-center sm:items-center"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={onClose} />
-      <div className="relative w-full max-w-sm bg-[#0D0D0D] rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden animate-slide-up border border-[#1A1A1A] sm:border-[#2A2A2A]">
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative w-full max-w-sm glass-modal rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden animate-slide-up border border-white/[0.05] sm:border-white/[0.07]">
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[2px]"
           style={{ background: `linear-gradient(90deg, transparent, ${ACCENT}60, transparent)` }} />

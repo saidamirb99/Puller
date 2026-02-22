@@ -78,7 +78,7 @@ const ChartTooltip = ({ active, payload, currency = 'USD' }: any) => {
   if (!active || !payload?.length) return null;
   const f = makeFmt(currency);
   return (
-    <div className="bg-[#111] border border-[#2A2A2A] rounded-xl px-4 py-2 shadow-xl backdrop-blur">
+    <div className="bg-[#111] border border-white/[0.07] rounded-xl px-4 py-2 shadow-xl backdrop-blur">
       <p className="text-white text-sm font-medium">{payload[0].name}</p>
       <p className="text-[#F5C518] font-bold">{f(payload[0].value)}</p>
     </div>
@@ -89,7 +89,7 @@ const BarTooltip = ({ active, payload, label, currency = 'USD' }: any) => {
   if (!active || !payload?.length) return null;
   const f = makeFmt(currency);
   return (
-    <div className="bg-[#111] border border-[#2A2A2A] rounded-xl px-4 py-3 shadow-xl backdrop-blur">
+    <div className="bg-[#111] border border-white/[0.07] rounded-xl px-4 py-3 shadow-xl backdrop-blur">
       <p className="text-gray-400 text-xs mb-2">{label}</p>
       {payload.map((e: any) => (
         <p key={e.name} className="text-sm font-medium" style={{ color: e.color }}>
@@ -113,7 +113,7 @@ const SpendingGauge: React.FC<{ spent: number; income: number; label: string }> 
             <stop offset="0%" stopColor="#F0932B" /><stop offset="100%" stopColor="#F5C518" />
           </linearGradient>
         </defs>
-        <circle cx="65" cy="65" r="54" fill="none" stroke="#2A2A2A" strokeWidth="10"
+        <circle cx="65" cy="65" r="54" fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth="10"
           strokeLinecap="round" strokeDasharray={`${circumference * 0.75} ${circumference}`}
           transform="rotate(135 65 65)" />
         <circle cx="65" cy="65" r="54" fill="none" stroke="url(#gaugeGradA)" strokeWidth="10"
@@ -428,7 +428,7 @@ export const Analytics: React.FC = () => {
 
           {/* ═══ DATE RANGE SELECTOR ═══════════════════════ */}
           <motion.div variants={itemV}
-            className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl p-4">
+            className="bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.05] rounded-2xl p-4">
             <div className="flex items-center justify-center gap-4">
               {/* Left arrow */}
               <button
@@ -437,7 +437,7 @@ export const Analytics: React.FC = () => {
                   setStartDate(shifted.start);
                   setEndDate(shifted.end);
                 }}
-                className="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center text-gray-400 hover:text-[#F5C518] hover:border-[#F5C518]/40 transition-all">
+                className="w-8 h-8 rounded-lg bg-white/[0.06] border border-white/[0.07] flex items-center justify-center text-gray-400 hover:text-[#F5C518] hover:border-[#F5C518]/40 transition-all">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M15 18l-6-6 6-6" /></svg>
               </button>
 
@@ -454,7 +454,7 @@ export const Analytics: React.FC = () => {
                   }
                 }}
                 disabled={isForwardDisabled(endDate)}
-                className={`w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center transition-all ${
+                className={`w-8 h-8 rounded-lg bg-white/[0.06] border border-white/[0.07] flex items-center justify-center transition-all ${
                   isForwardDisabled(endDate)
                     ? 'text-gray-700 cursor-not-allowed opacity-40'
                     : 'text-gray-400 hover:text-[#F5C518] hover:border-[#F5C518]/40'
@@ -469,7 +469,7 @@ export const Analytics: React.FC = () => {
                   setTempEndDate(format(endDate, 'yyyy-MM-dd'));
                   setShowDatePicker(true);
                 }}
-                className="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center text-gray-400 hover:text-[#F5C518] hover:border-[#F5C518]/40 transition-all">
+                className="w-8 h-8 rounded-lg bg-white/[0.06] border border-white/[0.07] flex items-center justify-center text-gray-400 hover:text-[#F5C518] hover:border-[#F5C518]/40 transition-all">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                   <line x1="16" y1="2" x2="16" y2="6" />
@@ -484,8 +484,8 @@ export const Analytics: React.FC = () => {
           {showDatePicker && (
             <div className="fixed inset-0 z-50 flex items-center justify-center"
               onClick={(e) => { if (e.target === e.currentTarget) setShowDatePicker(false); }}>
-              <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={() => setShowDatePicker(false)} />
-              <div className="relative w-full max-w-sm bg-[#0D0D0D] rounded-3xl shadow-2xl overflow-hidden border border-[#2A2A2A]">
+              <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setShowDatePicker(false)} />
+              <div className="relative w-full max-w-sm bg-[#0c0c18]/80 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden border border-white/[0.07]">
                 {/* Top accent line */}
                 <div className="absolute top-0 left-0 right-0 h-[2px]"
                   style={{ background: 'linear-gradient(90deg, transparent, #F5C51860, transparent)' }} />
@@ -512,7 +512,7 @@ export const Analytics: React.FC = () => {
                       <input type="date" value={tempStartDate}
                         max={tempEndDate || format(new Date(), 'yyyy-MM-dd')}
                         onChange={(e) => setTempStartDate(e.target.value)}
-                        className="w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#F5C518]/40 transition-colors [color-scheme:dark]" />
+                        className="w-full bg-white/[0.06] border border-white/[0.07] rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#F5C518]/40 transition-colors [color-scheme:dark]" />
                     </div>
                     <div>
                       <label className="text-gray-500 text-[10px] uppercase tracking-wider font-medium mb-1.5 block">
@@ -522,7 +522,7 @@ export const Analytics: React.FC = () => {
                         min={tempStartDate}
                         max={format(new Date(), 'yyyy-MM-dd')}
                         onChange={(e) => setTempEndDate(e.target.value)}
-                        className="w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#F5C518]/40 transition-colors [color-scheme:dark]" />
+                        className="w-full bg-white/[0.06] border border-white/[0.07] rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#F5C518]/40 transition-colors [color-scheme:dark]" />
                     </div>
                   </div>
 
@@ -544,7 +544,7 @@ export const Analytics: React.FC = () => {
                         className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all border ${
                           tempStartDate === format(preset.start, 'yyyy-MM-dd') && tempEndDate === format(preset.end, 'yyyy-MM-dd')
                             ? 'bg-[#F5C518] text-black border-[#F5C518]'
-                            : 'bg-transparent border-[#2A2A2A] text-gray-400 hover:border-[#F5C518]/40 hover:text-white'
+                            : 'bg-transparent border-white/[0.07] text-gray-400 hover:border-[#F5C518]/40 hover:text-white'
                         }`}>
                         {preset.label}
                       </button>
@@ -558,7 +558,7 @@ export const Analytics: React.FC = () => {
                         setTempStartDate(format(startOfMonth(new Date()), 'yyyy-MM-dd'));
                         setTempEndDate(format(new Date(), 'yyyy-MM-dd'));
                       }}
-                      className="flex-1 py-3 rounded-2xl font-semibold text-sm text-gray-400 border border-[#2A2A2A] hover:border-[#F5C518]/40 hover:text-white transition-all">
+                      className="flex-1 py-3 rounded-2xl font-semibold text-sm text-gray-400 border border-white/[0.07] hover:border-[#F5C518]/40 hover:text-white transition-all">
                       {t('analytics.clearAll')}
                     </button>
                     <button
@@ -581,11 +581,11 @@ export const Analytics: React.FC = () => {
 
           {/* ═══ HERO BALANCE CARD ═════════════════════════ */}
           <motion.div variants={itemV}
-            className="relative bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl overflow-hidden">
+            className="relative bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.05] rounded-2xl overflow-hidden">
             {/* Decorative gradient */}
             <div className="absolute top-0 left-0 right-0 h-[2px]"
               style={{ background: 'linear-gradient(90deg, transparent, #F5C51860, transparent)' }} />
-            <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full opacity-[0.04]"
+            <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full opacity-[0.07]"
               style={{ background: 'radial-gradient(circle, #F5C518, transparent)' }} />
 
             <div className="relative z-10 p-4 sm:p-6">
@@ -611,7 +611,7 @@ export const Analytics: React.FC = () => {
               <p className="text-gray-500 text-xs mb-1">{t('analytics.netSavings')}</p>
               <h3 className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-1 ${allTimeNet >= 0 ? 'text-[#00B894]' : 'text-[#E17055]'}`}>
                 {isLoading ? (
-                  <span className="inline-block w-48 h-10 bg-[#2A2A2A] rounded-xl animate-pulse" />
+                  <span className="inline-block w-48 h-10 bg-white/[0.07] rounded-xl animate-pulse" />
                 ) : `${allTimeNet >= 0 ? '+' : ''}${fmt(allTimeNet)}`}
               </h3>
               <p className="text-gray-600 text-xs mb-5">
@@ -653,7 +653,7 @@ export const Analytics: React.FC = () => {
               <div className="sm:col-span-2 lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
                 {statCards.map(card => (
                   <div key={card.label} className="relative rounded-2xl overflow-hidden p-5"
-                    style={{ background: '#1A1A1A', border: `1px solid ${card.color}20` }}>
+                    style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${card.color}20` }}>
                     <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full opacity-[0.06]"
                       style={{ background: `radial-gradient(circle, ${card.color}, transparent)` }} />
                     <div className="relative z-10">
@@ -671,7 +671,7 @@ export const Analytics: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <div className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl p-4 flex items-center justify-center">
+              <div className="bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.05] rounded-2xl p-4 flex items-center justify-center">
                 {isLoading ? (
                   <div className="w-10 h-10 border-2 border-[#F5C518]/30 border-t-[#F5C518] rounded-full animate-spin" />
                 ) : (
@@ -683,7 +683,7 @@ export const Analytics: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
               {extraStats.map(card => (
                 <div key={card.label} className="relative rounded-2xl overflow-hidden p-5"
-                  style={{ background: '#1A1A1A', border: `1px solid ${card.color}20` }}>
+                  style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${card.color}20` }}>
                   <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full opacity-[0.06]"
                     style={{ background: `radial-gradient(circle, ${card.color}, transparent)` }} />
                   <div className="relative z-10">
@@ -706,7 +706,7 @@ export const Analytics: React.FC = () => {
           {/* ═══ DONUT CHARTS ROW ══════════════════════════ */}
           <motion.div variants={itemV} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {/* Expense donut */}
-            <div className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl p-6">
+            <div className="bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.05] rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-1 h-4 rounded-full bg-[#F5C518]" />
                 <h3 className="text-white font-semibold text-sm">{t('analytics.spendingByCategory')}</h3>
@@ -747,7 +747,7 @@ export const Analytics: React.FC = () => {
             </div>
 
             {/* Income donut */}
-            <div className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl p-6">
+            <div className="bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.05] rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-1 h-4 rounded-full bg-[#00B894]" />
                 <h3 className="text-white font-semibold text-sm">{t('analytics.incomeByCategory')}</h3>
@@ -791,7 +791,7 @@ export const Analytics: React.FC = () => {
           {/* ═══ BAR CHART + RADAR ═════════════════════════ */}
           <motion.div variants={itemV} className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
             {/* Bar chart */}
-            <div className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl p-6">
+            <div className="bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.05] rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-1 h-4 rounded-full bg-[#00B894]" />
                 <h3 className="text-white font-semibold text-sm">{t('analytics.monthlyOverview')}</h3>
@@ -816,7 +816,7 @@ export const Analytics: React.FC = () => {
             </div>
 
             {/* Radar chart */}
-            <div className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl p-6">
+            <div className="bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.05] rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-1 h-4 rounded-full bg-[#E84393]" />
                 <h3 className="text-white font-semibold text-sm">{t('analytics.categoryComparison')}</h3>
@@ -833,7 +833,7 @@ export const Analytics: React.FC = () => {
               ) : (
                 <ResponsiveContainer width="100%" height={260}>
                   <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
-                    <PolarGrid stroke="#2A2A2A" />
+                    <PolarGrid stroke="rgba(255,255,255,0.07)" />
                     <PolarAngleAxis dataKey="category" tick={{ fill: '#6B7280', fontSize: 10 }} />
                     <Radar name={incLabel} dataKey={incLabel} stroke="#00B894" fill="#00B894" fillOpacity={0.15} strokeWidth={2} />
                     <Radar name={expLabel} dataKey={expLabel} stroke="#E17055" fill="#E17055" fillOpacity={0.15} strokeWidth={2} />
@@ -847,7 +847,7 @@ export const Analytics: React.FC = () => {
 
           {/* ═══ CALENDAR VIEW ═════════════════════════════ */}
           <motion.div variants={itemV}
-            className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl p-6">
+            className="bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.05] rounded-2xl p-6">
             <div className="flex items-center justify-between mb-5">
               <div>
                 <div className="flex items-center gap-2 mb-1">
@@ -859,14 +859,14 @@ export const Analytics: React.FC = () => {
               {/* Calendar month nav */}
               <div className="flex items-center gap-3">
                 <button onClick={() => setCalendarMonth(subMonths(calendarMonth, 1))}
-                  className="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center text-gray-400 hover:text-[#F5C518] hover:border-[#F5C518]/40 transition-all">
+                  className="w-8 h-8 rounded-lg bg-white/[0.06] border border-white/[0.07] flex items-center justify-center text-gray-400 hover:text-[#F5C518] hover:border-[#F5C518]/40 transition-all">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M15 18l-6-6 6-6" /></svg>
                 </button>
                 <span className="text-white text-sm font-medium min-w-[140px] text-center">
                   {format(calendarMonth, 'MMMM yyyy', { locale })}
                 </span>
                 <button onClick={() => setCalendarMonth(addMonths(calendarMonth, 1))}
-                  className="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center text-gray-400 hover:text-[#F5C518] hover:border-[#F5C518]/40 transition-all">
+                  className="w-8 h-8 rounded-lg bg-white/[0.06] border border-white/[0.07] flex items-center justify-center text-gray-400 hover:text-[#F5C518] hover:border-[#F5C518]/40 transition-all">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M9 18l6-6-6-6" /></svg>
                 </button>
               </div>
@@ -885,13 +885,13 @@ export const Analytics: React.FC = () => {
                   ))}
                 </div>
                 {/* Calendar grid */}
-                <div className="grid grid-cols-7 gap-px bg-[#1A1A1A] rounded-xl overflow-hidden">
+                <div className="grid grid-cols-7 gap-px bg-white/[0.06] rounded-xl overflow-hidden">
                   {calendarDays.map((day, idx) => {
                     const today = isToday(day.date);
                     const hasData = day.income > 0 || day.expense > 0;
                     return (
                       <div key={idx}
-                        className={`bg-[#0D0D0D] p-1 sm:p-2 min-h-[56px] sm:min-h-[80px] transition-all ${
+                        className={`bg-[#0c0c18]/80 backdrop-blur-2xl p-1 sm:p-2 min-h-[56px] sm:min-h-[80px] transition-all ${
                           !day.isCurrentMonth ? 'opacity-30' : ''
                         } ${today ? 'ring-1 ring-inset ring-[#F5C518]/60' : ''}`}>
                         <p className={`text-xs font-medium mb-1 ${today ? 'text-[#F5C518]' : 'text-gray-400'}`}>
@@ -919,7 +919,7 @@ export const Analytics: React.FC = () => {
           <motion.div variants={itemV} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {/* Expense categories */}
             {!isLoading && expenseCategoryData.length > 0 && (
-              <div className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl p-6">
+              <div className="bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.05] rounded-2xl p-6">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-1 h-4 rounded-full bg-[#F0932B]" />
                   <h3 className="text-white font-semibold text-sm">{t('analytics.topCategories')}</h3>
@@ -960,7 +960,7 @@ export const Analytics: React.FC = () => {
 
             {/* Income categories */}
             {!isLoading && incomeCategoryData.length > 0 && (
-              <div className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-2xl p-6">
+              <div className="bg-[#0c0c18]/80 backdrop-blur-2xl border border-white/[0.05] rounded-2xl p-6">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-1 h-4 rounded-full bg-[#00B894]" />
                   <h3 className="text-white font-semibold text-sm">{t('analytics.topIncomeCategories')}</h3>

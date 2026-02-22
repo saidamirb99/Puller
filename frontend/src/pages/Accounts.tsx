@@ -74,12 +74,12 @@ export const Accounts: React.FC = () => {
 
         {/* Hero section */}
         <motion.div variants={itemV}>
-          <div className="relative rounded-3xl overflow-hidden mb-8 bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A]">
+          <div className="relative rounded-3xl overflow-hidden mb-8 glass">
             {/* Accent line top */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C518] to-transparent opacity-60" />
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C518] to-transparent opacity-80" />
 
             {/* Watermark glow */}
-            <div className="absolute -top-20 right-10 w-60 h-60 rounded-full opacity-[0.03]"
+            <div className="absolute -top-20 right-10 w-60 h-60 rounded-full opacity-[0.06]"
               style={{ background: 'radial-gradient(circle, #F5C518, transparent)' }} />
 
             <div className="relative z-10 p-4 sm:p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
@@ -119,7 +119,7 @@ export const Accounts: React.FC = () => {
         {/* Form */}
         {showForm && (
           <motion.div variants={itemV}>
-            <div className="bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl p-6 mb-8 shadow-xl">
+            <div className="glass rounded-2xl p-6 mb-8 shadow-xl">
               <AccountForm
                 account={editingAccount}
                 onSubmit={handleCreateAccount}
@@ -141,7 +141,7 @@ export const Accounts: React.FC = () => {
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {[0,1,2].map(i => (
-                <div key={i} className="bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl p-6 animate-pulse">
+                <div key={i} className="glass rounded-2xl p-6 animate-pulse">
                   <div className="flex items-center gap-3 mb-8">
                     <div className="w-10 h-10 rounded-xl bg-white/[0.06]" />
                     <div>
@@ -155,7 +155,7 @@ export const Accounts: React.FC = () => {
               ))}
             </div>
           ) : accounts.length === 0 ? (
-            <div className="text-center py-20 bg-[#1A1A1A]/60 backdrop-blur-xl border border-[#2A2A2A] rounded-2xl">
+            <div className="text-center py-20 glass rounded-2xl">
               <div className="w-16 h-16 rounded-2xl bg-[#F5C518]/10 flex items-center justify-center mx-auto mb-4">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5C518" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="5" width="20" height="14" rx="2" />

@@ -14,13 +14,23 @@ import { Jars } from './pages/Jars';
 import { Settings } from './pages/Settings';
 import { Notifications } from './pages/Notifications';
 
+/* ── Animated glass background orbs ──────────────── */
+const GlassBackground: React.FC = () => (
+  <div className="glass-bg">
+    <div className="orb orb-1" />
+    <div className="orb orb-2" />
+    <div className="orb orb-3" />
+    <div className="orb orb-4" />
+  </div>
+);
+
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-dark-bg">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-purple mx-auto mb-4"></div>
           <p className="text-gray-400">Loading...</p>
@@ -42,7 +52,7 @@ const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-dark-bg">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-purple mx-auto mb-4"></div>
           <p className="text-gray-400">Loading...</p>
@@ -169,6 +179,7 @@ function App() {
   return (
     <Router>
       <AuthProvider>
+        <GlassBackground />
         <AppRoutes />
       </AuthProvider>
     </Router>
