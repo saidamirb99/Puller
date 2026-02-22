@@ -1,0 +1,31 @@
+{
+  "screenshot": {
+    "name": "projects/17263834884856614179/files/330b7bf7639e4ebab6fd8040806bee95",
+    "downloadUrl": "https://lh3.googleusercontent.com/aida/AOfcidX5uaUx_JeD7iOc6h-pvYuqZn5f-aCMZtX22wBHjMIMX9veuqUqvk-LJsY4oVIkDOjDN7TeEE_TCOivac0kT7b8Biu5BcyvX2onRJ07Lz2eTKWiyThKg_CgRn1A1anJSHG1Ig2ZismrtD30M6GJlfLGu_OxioGgKrfv14d-GoLLxwdnJIMusxMoBC44DHSdpr2-f0aS3DiHb__nGaxSZKGSbaiSMPipPw7q3tpJHwLHWJ7HgI7ys20rJfY"
+  },
+  "htmlCode": {
+    "name": "projects/17263834884856614179/files/da6da46028f140f193959c3c006ab62f",
+    "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzZlZjY1MWI4NDRjZjRiNzdhMzY3M2Q0MWZiMDg0Zjg5EgsSBxCAmoPslRQYAZIBJAoKcHJvamVjdF9pZBIWQhQxNzI2MzgzNDg4NDg1NjYxNDE3OQ&filename=&opi=89354086",
+    "mimeType": "text/html"
+  },
+  "id": "c61da7b3f624422f8e368ea8dabb3dcf",
+  "generatedBy": "figaro_agent",
+  "width": "2560",
+  "height": "2048",
+  "title": "FinPulse Home Dashboard",
+  "prompt": "Title: FinPulse Home Dashboard\nContext: Modern fintech mobile app for personal finance management with a dark theme and clean aesthetic.\nDescription of the screen: Mobile fintech app home dashboard. Background: #0F1117. Top: \"Hello, User\" and date on left, notification bell and avatar on right. Main card: Gradient #1E1B4B to #2D2670, showing \"Total Balance\" and \"$12,450.00\" with Income ($3,200, #00B894) and Expenses ($1,850, #E17055) pills. \"My Accounts\" section with horizontal scrollable cards (Visa, Savings, Cash). \"Recent Transactions\" list with 4 items: category icon, name/category, amount (red/green) and date. Bottom tab bar: Home active. variant 1 of 1\nPlatform: web\nForm factor: desktop",
+  "name": "projects/17263834884856614179/screens/c61da7b3f624422f8e368ea8dabb3dcf",
+  "theme": {
+    "colorMode": "DARK",
+    "font": "INTER",
+    "roundness": "ROUND_TWELVE",
+    "customColor": "#6b5be6",
+    "saturation": 2
+  },
+  "deviceType": "DESKTOP",
+  "screenType": "DESIGN",
+  "screenMetadata": {
+    "agentType": "PRO_AGENT",
+    "status": "COMPLETE"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "screenshot": {
+    "name": "projects/17263834884856614179/files/263280e4db4646f6b037af1b831da248",
+    "downloadUrl": "https://lh3.googleusercontent.com/aida/AOfcidVp5gxnv5UuNfue9QkPFvk-vuLsRrEuXobYzxPC50n3BIC3_xpK7f0c3z3evwVW4IEaHZBqlV1I9jQ3WVBZFzHl3FeQvRAenuRreymUc2EGEzJ-64GqP1nkxgMlslZ6eM56yoaI0WZ-OJDvu52yMdhkwCuzPd0QVAcuypFnlakdBgd3sNqrkfbPeDx95XqE5bn2uFzb95JXdFQ5KQACllXxJtaydDlpKEwbDqSjKY-lKj8BYbY1nEW6p5Fj"
+  },
+  "htmlCode": {
+    "name": "projects/17263834884856614179/files/cf7ec91276cc48618f9cbbe5237aa77c",
+    "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzEzM2Y4ODkwMzExODQ2NTJhMTY3YWY2ZTQ5YTY3YjgxEgsSBxCAmoPslRQYAZIBJAoKcHJvamVjdF9pZBIWQhQxNzI2MzgzNDg4NDg1NjYxNDE3OQ&filename=&opi=89354086",
+    "mimeType": "text/html"
+  },
+  "id": "1a74f92e4e564eba8dadd129d4937f75",
+  "generatedBy": "figaro_agent",
+  "width": "2560",
+  "height": "2048",
+  "title": "Transaction History List",
+  "prompt": "Title: Transaction History List\nContext: Modern fintech mobile app for personal finance management with a dark theme and clean aesthetic.\nDescription of the screen: Mobile fintech app transactions list screen. Background: #0F1117. Top: \"Transactions\" title, filter and search icons. Row of filter chips: All (active #6C5CE7), Expenses, Income, Transfers. Grouped list by date: \"Today, Feb 20\" header with total. Transaction rows (#1A1D27 cards): category icon in color circle, name, category/account tag, amount (red/green) and date. Floating action button \"+\" in #6C5CE7 at bottom right. Bottom tab bar: Transactions active. variant 1 of 1\nPlatform: web\nForm factor: desktop",
+  "name": "projects/17263834884856614179/screens/1a74f92e4e564eba8dadd129d4937f75",
+  "theme": {
+    "colorMode": "DARK",
+    "font": "INTER",
+    "roundness": "ROUND_TWELVE",
+    "customColor": "#6b5be6",
+    "saturation": 2
+  },
+  "deviceType": "DESKTOP",
+  "screenType": "DESIGN",
+  "screenMetadata": {
+    "agentType": "PRO_AGENT",
+    "status": "COMPLETE"
+  }
+}
