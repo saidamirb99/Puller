@@ -71,6 +71,9 @@ class Settings(BaseSettings):
     VOICE_TRANSCRIPTION_PROVIDER: str = "gemini"
     VOICE_MAX_AUDIO_SIZE_MB: int = 10
 
+    # Telegram Bot
+    TELEGRAM_BOT_TOKEN: str = ""
+
     # Pagination
     DEFAULT_PAGE_SIZE: int = 20
     MAX_PAGE_SIZE: int = 100

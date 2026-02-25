@@ -122,7 +122,8 @@ async def global_exception_handler(request, exc):
 # Import and register routers
 import src.models.debt_payment  # noqa: ensure table is registered
 import src.models.jar  # noqa: ensure jar tables are registered
-from src.routes import auth, accounts, transactions, categories, debts, jars, voice, insights
+import src.models.investment  # noqa: ensure investment tables are registered
+from src.routes import auth, accounts, transactions, categories, debts, jars, voice, insights, investments
 
 app.include_router(auth.router, prefix="/api/v1/auth", tags=["Authentication"])
 app.include_router(accounts.router, prefix="/api/v1/accounts", tags=["Accounts"])
@@ -132,6 +133,7 @@ app.include_router(debts.router, prefix="/api/v1/debts", tags=["Debts"])
 app.include_router(jars.router, prefix="/api/v1/jars", tags=["Jars"])
 app.include_router(voice.router, prefix="/api/v1/voice", tags=["Voice Input"])
 app.include_router(insights.router, prefix="/api/v1/insights", tags=["Insights"])
+app.include_router(investments.router, prefix="/api/v1/investments", tags=["Investments"])
 
 
 if __name__ == "__main__":

@@ -12,6 +12,8 @@ import { Debts } from './pages/Debts';
 import { DebtDetail } from './pages/DebtDetail';
 import { Jars } from './pages/Jars';
 import { Settings } from './pages/Settings';
+import { Investments } from './pages/Investments';
+import { InvestmentDetail } from './pages/InvestmentDetail';
 import { Notifications } from './pages/Notifications';
 
 /* ── Animated glass background orbs ──────────────── */
@@ -149,6 +151,22 @@ function AppRoutes() {
         element={
           <ProtectedRoute>
             <DebtDetail />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/investments"
+        element={
+          <ProtectedRoute>
+            <Investments />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/investments/asset/:ticker"
+        element={
+          <ProtectedRoute>
+            <InvestmentDetail />
           </ProtectedRoute>
         }
       />

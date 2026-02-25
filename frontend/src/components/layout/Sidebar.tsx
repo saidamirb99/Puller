@@ -48,6 +48,15 @@ export const Sidebar: React.FC = () => {
         </svg>
       ),
     },
+    // Hidden for now — will come back to Investments later
+    // { id: 'investments', label: t('sidebar.investments'), path: '/investments',
+    //   icon: (active: boolean) => (
+    //     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#F5C518' : '#6B7280'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    //       <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+    //       <polyline points="16 7 22 7 22 13" />
+    //     </svg>
+    //   ),
+    // },
     { id: 'jars', label: t('sidebar.jars'), path: '/jars',
       icon: (active: boolean) => (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={active ? '#F5C518' : '#6B7280'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -98,7 +107,7 @@ export const Sidebar: React.FC = () => {
       {/* Navigation */}
       <nav className="flex-1 mt-4 px-3 space-y-1">
         {navItems.map((item) => {
-          const isActive = location.pathname === item.path;
+          const isActive = location.pathname === item.path || location.pathname.startsWith(item.path + '/');
           return (
             <button
               key={item.id}

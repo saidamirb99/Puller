@@ -65,5 +65,11 @@ mypy==1.8.0
 # Voice Input / AI Transcription
 google-generativeai>=0.8.0
 
+# Market Data
+yfinance>=0.2.36
+
 # Rate Limiting
 slowapi==0.1.9
+
+# Telegram Bot
+python-telegram-bot>=21.0

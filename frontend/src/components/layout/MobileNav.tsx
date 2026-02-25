@@ -44,14 +44,26 @@ const tabs = [
       </svg>
     ),
   },
+  // Hidden for now — will come back to Investments later
+  // {
+  //   id: 'investments',
+  //   path: '/investments',
+  //   labelKey: 'sidebar.investments',
+  //   icon: (c: string) => (
+  //     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  //       <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+  //       <polyline points="16 7 22 7 22 13" />
+  //     </svg>
+  //   ),
+  // },
   {
     id: 'settings',
     path: '/settings',
     labelKey: 'settings.title',
     icon: (c: string) => (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-        <circle cx="12" cy="7" r="4" />
+        <path d="M12.22 2h-.44a2 2 0 00-2 2v.18a2 2 0 01-1 1.73l-.43.25a2 2 0 01-2 0l-.15-.08a2 2 0 00-2.73.73l-.22.38a2 2 0 00.73 2.73l.15.1a2 2 0 011 1.72v.51a2 2 0 01-1 1.74l-.15.09a2 2 0 00-.73 2.73l.22.38a2 2 0 002.73.73l.15-.08a2 2 0 012 0l.43.25a2 2 0 011 1.73V20a2 2 0 002 2h.44a2 2 0 002-2v-.18a2 2 0 011-1.73l.43-.25a2 2 0 012 0l.15.08a2 2 0 002.73-.73l.22-.39a2 2 0 00-.73-2.73l-.15-.08a2 2 0 01-1-1.74v-.5a2 2 0 011-1.74l.15-.09a2 2 0 00.73-2.73l-.22-.38a2 2 0 00-2.73-.73l-.15.08a2 2 0 01-2 0l-.43-.25a2 2 0 01-1-1.73V4a2 2 0 00-2-2z" />
+        <circle cx="12" cy="12" r="3" />
       </svg>
     ),
   },
@@ -68,7 +80,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ onAddTransaction }) => {
     <nav className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#050510]/70 backdrop-blur-2xl border-t border-white/[0.07]"
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
-      <div className="flex items-end justify-around px-2 h-16">
+      <div className="flex items-end justify-around px-1 h-16">
         {/* Left tabs */}
         {tabs.slice(0, 2).map(tab => {
           const active = isActive(tab.path);
@@ -77,30 +89,29 @@ export const MobileNav: React.FC<MobileNavProps> = ({ onAddTransaction }) => {
             <button
               key={tab.id}
               onClick={() => navigate(tab.path)}
-              className="flex flex-col items-center justify-center gap-0.5 flex-1 py-2 active:scale-95 transition-transform"
+              className="flex flex-col items-center justify-center gap-0.5 flex-1 py-2 active:scale-95 transition-transform min-w-0"
             >
               {tab.icon(color)}
-              <span className="text-[10px] font-medium" style={{ color }}>{t(tab.labelKey)}</span>
+              <span className="text-[9px] font-medium truncate max-w-full" style={{ color }}>{t(tab.labelKey)}</span>
             </button>
           );
         })}
 
         {/* Center "+" button */}
-        <div className="flex flex-col items-center justify-center flex-1 -mt-5">
+        <div className="flex flex-col items-center justify-center flex-shrink-0 -mt-5 px-1">
           <button
             onClick={onAddTransaction}
-            className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform"
+            className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform"
             style={{
               background: 'linear-gradient(135deg, #F5C518, #D4A810)',
               boxShadow: '0 4px 20px rgba(245,197,24,0.35)',
             }}
           >
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="12" y1="5" x2="12" y2="19" />
               <line x1="5" y1="12" x2="19" y2="12" />
             </svg>
           </button>
-          <span className="text-[10px] font-medium text-[#F5C518] mt-0.5">{t('modal.addTransaction')}</span>
         </div>
 
         {/* Right tabs */}
@@ -111,10 +122,10 @@ export const MobileNav: React.FC<MobileNavProps> = ({ onAddTransaction }) => {
             <button
               key={tab.id}
               onClick={() => navigate(tab.path)}
-              className="flex flex-col items-center justify-center gap-0.5 flex-1 py-2 active:scale-95 transition-transform"
+              className="flex flex-col items-center justify-center gap-0.5 flex-1 py-2 active:scale-95 transition-transform min-w-0"
             >
               {tab.icon(color)}
-              <span className="text-[10px] font-medium" style={{ color }}>{t(tab.labelKey)}</span>
+              <span className="text-[9px] font-medium truncate max-w-full" style={{ color }}>{t(tab.labelKey)}</span>
             </button>
           );
         })}

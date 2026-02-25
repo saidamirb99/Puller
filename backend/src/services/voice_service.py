@@ -115,10 +115,11 @@ async def transcribe_and_parse_gemini(
     categories: List[Dict],
 ) -> VoiceParseResponse:
     """Use Google Gemini to transcribe audio and extract transaction fields in one call."""
-    import google.generativeai as genai
+    import base64
+    from google import genai
+    from google.genai import types
 
-    genai.configure(api_key=settings.GOOGLE_GEMINI_API_KEY)
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    client = genai.Client(api_key=settings.GOOGLE_GEMINI_API_KEY)
 
     category_names = [c["name"] for c in categories]
 
@@ -135,10 +136,12 @@ Extract the following as valid JSON:
 
 Respond ONLY with valid JSON, no markdown code blocks."""
 
-    response = model.generate_content([
-        prompt,
-        {"mime_type": mime_type, "data": audio_bytes},
-    ])
+    audio_part = types.Part.from_bytes(data=audio_bytes, mime_type=mime_type)
+
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=[prompt, audio_part],
+    )
 
     raw_text = response.text.strip()
     # Strip markdown code fences if present

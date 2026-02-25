@@ -28,6 +28,8 @@ class User(Base):
     debts = relationship("Debt", back_populates="user", cascade="all, delete-orphan")
     jar_configs = relationship("JarConfig", back_populates="user", cascade="all, delete-orphan")
     jar_allocations = relationship("JarAllocation", back_populates="user", cascade="all, delete-orphan")
+    investment_holdings = relationship("InvestmentHolding", back_populates="user", cascade="all, delete-orphan")
+    watchlist_items = relationship("WatchlistItem", back_populates="user", cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<User {self.email}>"
