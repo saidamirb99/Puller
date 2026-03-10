@@ -96,6 +96,10 @@ export default {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
         },
+        'grid': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(calc(var(--cell-size)))' },
+        },
       },
       animation: {
         'slide-up': 'slide-up 0.3s cubic-bezier(0.32,0.72,0,1) forwards',
@@ -104,6 +108,7 @@ export default {
         'scale-in': 'scale-in 0.2s ease-out forwards',
         'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
         'shimmer': 'shimmer 3s ease-in-out infinite',
+        'grid': 'grid 15s linear infinite',
       },
     },
   },

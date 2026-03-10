@@ -51,14 +51,18 @@ async def root():
 async def startup_event():
     # Create database tables (use Alembic migrations in production)
     Base.metadata.create_all(bind=engine)
-    # Add new columns added after initial schema creation (SQLite-compatible)
-    from sqlalchemy import text
+
+    from sqlalchemy import text, inspect
+    is_sqlite = settings.DATABASE_URL.startswith("sqlite")
+
     with engine.connect() as conn:
-        existing = [row[1] for row in conn.execute(text("PRAGMA table_info(debts)")).fetchall()]
+        # Add new columns if missing (works on both SQLite and PostgreSQL)
+        inspector = inspect(engine)
+        existing = [col["name"] for col in inspector.get_columns("debts")]
         for col_name, col_type in [
             ('category', 'VARCHAR(50)'),
             ('personal_note', 'VARCHAR(1000)'),
-            ('reminder_at', 'DATETIME'),
+            ('reminder_at', 'TIMESTAMP' if not is_sqlite else 'DATETIME'),
         ]:
             if col_name not in existing:
                 conn.execute(text(f"ALTER TABLE debts ADD COLUMN {col_name} {col_type}"))

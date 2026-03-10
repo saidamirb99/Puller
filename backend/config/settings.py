@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
-from typing import Optional
+from pydantic import field_validator
+from typing import List, Optional, Union
 from functools import lru_cache
 
 
@@ -14,7 +15,7 @@ class Settings(BaseSettings):
     PORT: int = 8000
 
     # Database
-    DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/puller_db"
+    DATABASE_URL: str = "sqlite:///./puller.db"
     DATABASE_ECHO: bool = False
 
     # Redis
@@ -27,8 +28,8 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
 
-    # CORS
-    CORS_ORIGINS: list = [
+    # CORS — accepts a comma-separated string from env vars or a JSON list
+    CORS_ORIGINS: Union[str, List[str]] = [
         "http://localhost:3000",
         "http://localhost:5173",
         "http://localhost:5174",
@@ -43,6 +44,13 @@ class Settings(BaseSettings):
         "http://192.168.0.107:5173",
         "http://192.168.0.107:5174",
     ]
+
+    @field_validator("CORS_ORIGINS", mode="before")
+    @classmethod
+    def parse_cors_origins(cls, v):
+        if isinstance(v, str):
+            return [origin.strip() for origin in v.split(",") if origin.strip()]
+        return v
 
     # Email (for notifications)
     MAIL_USERNAME: Optional[str] = None
